@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inrobics Care — La demo por voz con Alma (mockup A2)</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#008CFF;--azul-osc:#0179DB;--azul-cla:#3EA8FF;--celeste:#9AEDFF;--neutro:#EFEFEA;--neutro2:#E9E9E0;--negro:#1F1F1F;--magenta:#E800F0;--verde:#02AF08;--link:#0165B8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Bricolage Grotesque",Helvetica,Arial,sans-serif;font-size:18px;line-height:1.6;color:var(--negro);background:var(--neutro)}
+.wrap{max-width:980px;margin:0 auto;padding:44px 24px 70px}
+.head h1{font-size:34px;font-weight:800;letter-spacing:-.025em;margin-bottom:8px}
+.head p{font-size:19px;color:#3d3d3d;max-width:66ch;margin-bottom:12px}
+
+/* progreso */
+.progreso{display:flex;gap:10px;margin:26px 0 20px}
+.pt{flex:1;height:8px;border-radius:999px;background:var(--neutro2);overflow:hidden}
+.pt i{display:block;height:100%;width:0;background:linear-gradient(90deg,#84E6FF,#008CFF);border-radius:999px;transition:width .4s ease}
+.pt.done i{width:100%}
+.pt.act i{width:55%}
+.etiquetas{display:flex;gap:10px;font-size:15px;font-weight:600;color:#555;margin-bottom:22px}
+.etiquetas span{flex:1}
+.etiquetas span.act{color:var(--azul-osc)}
+
+/* escenario */
+.escena{background:#fff;border-radius:30px;padding:34px;box-shadow:0 24px 60px rgba(31,31,31,.10);min-height:520px;display:flex;flex-direction:column}
+.barra{display:flex;align-items:center;gap:14px;padding-bottom:22px;border-bottom:1px solid var(--neutro2)}
+.logo{display:flex;align-items:baseline;gap:9px}
+.logo b{font-size:21px;font-weight:800;color:var(--azul-osc);letter-spacing:-.02em}
+.logo .desc{font-size:17px;font-weight:600;position:relative;padding-left:12px}
+.logo .desc::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;border-radius:50%;background:var(--magenta)}
+.sinreg{margin-left:auto;font-size:15px;font-weight:700;background:var(--neutro);border-radius:999px;padding:8px 16px}
+.micro{display:inline-flex;align-items:center;gap:9px;padding:8px 15px;border-radius:999px;font-size:15px;font-weight:700;background:#E6F7E7;color:#046b08}
+.micro i{width:10px;height:10px;border-radius:50%;background:var(--verde);animation:lat 2.2s ease-in-out infinite}
+@keyframes lat{0%,100%{opacity:1}50%{opacity:.3}}
+
+.chat{flex:1;padding:26px 0;display:flex;flex-direction:column;gap:14px;justify-content:flex-end}
+.msg{max-width:76%;padding:16px 22px;border-radius:22px;font-size:20px;line-height:1.5;opacity:0;transform:translateY(10px);animation:in .45s ease forwards}
+@keyframes in{to{opacity:1;transform:none}}
+.m-alma{background:var(--neutro);border-bottom-left-radius:7px;display:flex;gap:14px;align-items:flex-start}
+.m-user{background:#E7F3FF;border-bottom-right-radius:7px;align-self:flex-end}
+.cara{width:40px;height:40px;border-radius:50%;background:linear-gradient(140deg,#84E6FF,#008CFF);flex:none;position:relative;margin-top:2px}
+.cara::after{content:"";position:absolute;inset:11px;border-radius:50%;background:#fff;opacity:.92}
+
+/* tarjeta de reporte dentro del chat */
+.reporte{background:#fff;border:2px solid var(--neutro2);border-radius:20px;padding:20px 22px;max-width:82%;opacity:0;animation:in .45s ease forwards}
+.reporte .rt{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#555;margin-bottom:12px}
+.reporte .rl{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px solid var(--neutro);font-size:17px}
+.reporte .rl:last-child{border:0}
+.reporte b{font-weight:700}
+
+.pie{border-top:1px solid var(--neutro2);padding-top:22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.hablar{min-height:64px;padding:0 30px;border:0;border-radius:999px;background:var(--azul);color:#fff;font-family:inherit;font-size:20px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:14px;box-shadow:0 6px 20px rgba(0,140,255,.28)}
+.hablar:focus-visible{outline:3px solid var(--negro);outline-offset:3px}
+.ondas{display:flex;align-items:flex-end;gap:5px;height:26px}
+.ondas i{width:5px;background:#fff;border-radius:3px;animation:o 1.2s ease-in-out infinite}
+.ondas i:nth-child(1){height:9px;animation-delay:0s}
+.ondas i:nth-child(2){height:20px;animation-delay:.1s}
+.ondas i:nth-child(3){height:26px;animation-delay:.2s}
+.ondas i:nth-child(4){height:14px;animation-delay:.3s}
+@keyframes o{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1)}}
+.pie .nota{font-size:16px;color:#555}
+
+/* paso 4: pedir el correo */
+.correo{display:none;flex-direction:column;gap:18px;text-align:center;padding:14px 0}
+.correo h2{font-size:30px;font-weight:800;letter-spacing:-.025em;max-width:20ch;margin:0 auto}
+.correo p{font-size:18px;color:#3d3d3d;max-width:50ch;margin:0 auto}
+.correo form{display:flex;gap:12px;max-width:520px;margin:8px auto 0;flex-wrap:wrap}
+.correo input{flex:1;min-width:240px;min-height:62px;padding:0 20px;font-family:inherit;font-size:19px;border:2px solid var(--neutro2);border-radius:14px}
+.correo input:focus{outline:3px solid var(--negro);outline-offset:2px;border-color:var(--azul)}
+.correo .saltar{font-size:16px}
+.correo .saltar a{color:var(--link);font-weight:600}
+
+.controles{display:flex;gap:12px;justify-content:center;margin-top:26px;flex-wrap:wrap}
+.ctl{min-height:56px;padding:0 26px;border-radius:999px;border:2px solid var(--neutro2);background:#fff;font-family:inherit;font-size:17px;font-weight:700;cursor:pointer}
+.ctl:hover{border-color:var(--azul)}
+.ctl:focus-visible{outline:3px solid var(--negro);outline-offset:3px}
+.leyenda{text-align:center;font-size:15px;color:#555;margin-top:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <h1>La demo por voz · dos minutos con Alma</h1>
+    <p>Tres momentos que enseñan la propuesta completa. Sin registro: el correo se pide
+      al final y con una razón comprensible.</p>
+  </div>
+
+  <div class="progreso">
+    <span class="pt act" id="p1"><i></i></span>
+    <span class="pt" id="p2"><i></i></span>
+    <span class="pt" id="p3"><i></i></span>
+  </div>
+  <div class="etiquetas">
+    <span class="act" id="e1">Una rutina juntos</span>
+    <span id="e2">Un recordatorio útil</span>
+    <span id="e3">Lo que ve la familia</span>
+  </div>
+
+  <div class="escena">
+    <div class="barra">
+      <span class="logo"><b>inrobics</b><span class="desc">Care</span></span>
+      <span class="micro"><i></i> Alma te escucha</span>
+      <span class="sinreg">Sin registro</span>
+    </div>
+
+    <div class="chat" id="chat"></div>
+
+    <div class="pie" id="pie">
+      <button class="hablar" id="btn">
+        <span class="ondas"><i></i><i></i><i></i><i></i></span>
+        <span id="btxt">Pulsa y habla</span>
+      </button>
+      <span class="nota" id="nota">Alma solo escucha mientras mantienes pulsado.</span>
+    </div>
+
+    <div class="correo" id="correo">
+      <h2>¿Te guardo esta conversación?</h2>
+      <p>Te envío por correo lo que acabas de ver y la guía para enseñárselo a tu madre
+        sin agobiarla. Nada más.</p>
+      <form onsubmit="return false">
+        <input type="email" placeholder="tu@correo.es" aria-label="Tu correo electrónico">
+        <button class="hablar" type="submit" style="box-shadow:none"><span id="x">Enviármelo</span></button>
+      </form>
+      <p class="saltar"><a href="#">No, gracias. Quiero seguir mirando</a></p>
+    </div>
+  </div>
+
+  <div class="controles">
+    <button class="ctl" id="prev">← Momento anterior</button>
+    <button class="ctl" id="next">Momento siguiente →</button>
+    <button class="ctl" id="reset">Reiniciar</button>
+  </div>
+  <p class="leyenda">Mockup navegable: usa los controles para recorrer los tres momentos y el cierre.</p>
+</div>
+
+<script>
+const guion = [
+  [ // 1 · rutina
+    ['alma','Buenos días, María. ¿Qué tal ha dormido?'],
+    ['user','Bien, un poco cansada.'],
+    ['alma','Entonces algo suave. ¿Estiramos los brazos dos minutos, sentada?'],
+    ['user','Venga.'],
+    ['alma','Perfecto. Suba los brazos despacio… y baje. Muy bien, María.']
+  ],
+  [ // 2 · recordatorio
+    ['alma','Por cierto, son las once. ¿Se ha tomado la pastilla de la tensión?'],
+    ['user','Ay, no. Ahora voy.'],
+    ['alma','Tranquila, la espero. Le aviso siempre a esta hora, así no tiene que acordarse usted.']
+  ],
+  [ // 3 · reporte
+    ['alma','Esto es lo que le llegaría a su hijo el domingo. Ni una palabra de lo que hablamos.'],
+    ['reporte',''],
+    ['alma','Él ve que está usted bien. Lo que se cuenta, se lo cuenta usted.']
+  ]
+];
+
+const chat=document.getElementById('chat'), pie=document.getElementById('pie'),
+      correo=document.getElementById('correo');
+let paso=0;
+
+function reporteHTML(){
+  return `<div class="reporte">
+    <div class="rt">Resumen para José Manuel · semana 1</div>
+    <div class="rl"><span>Conversaciones con Alma</span><b>6 de 7 días</b></div>
+    <div class="rl"><span>Rutinas completadas</span><b>5</b></div>
+    <div class="rl"><span>Recordatorios atendidos</span><b>7 de 7</b></div>
+    <div class="rl"><span>Para hablar con ella</span><b>Le gustó la de memoria</b></div>
+  </div>`;
+}
+
+function pinta(){
+  chat.innerHTML='';
+  if(paso<3){
+    pie.style.display='flex'; correo.style.display='none';
+    guion[paso].forEach((m,i)=>{
+      const d=document.createElement('div');
+      if(m[0]==='reporte'){ d.innerHTML=reporteHTML(); d.style.animationDelay=(i*.5)+'s';
+        d.firstElementChild.style.animationDelay=(i*.5)+'s'; chat.appendChild(d.firstElementChild); return; }
+      d.className='msg '+(m[0]==='alma'?'m-alma':'m-user');
+      d.innerHTML=(m[0]==='alma'?'<span class="cara"></span><span>'+m[1]+'</span>':m[1]);
+      d.style.animationDelay=(i*.5)+'s';
+      chat.appendChild(d);
+    });
+  }else{
+    pie.style.display='none'; correo.style.display='flex';
+  }
+  for(let i=1;i<=3;i++){
+    const pt=document.getElementById('p'+i), et=document.getElementById('e'+i);
+    pt.className='pt'+(paso>i-1?' done':paso===i-1?' act':'');
+    et.className=(paso===i-1?'act':'');
+  }
+}
+document.getElementById('next').onclick=()=>{paso=Math.min(3,paso+1);pinta()};
+document.getElementById('prev').onclick=()=>{paso=Math.max(0,paso-1);pinta()};
+document.getElementById('reset').onclick=()=>{paso=0;pinta()};
+pinta();
+</script>
+</body>
+</html>

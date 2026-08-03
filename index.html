@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Muestras interactivas del TFM sobre Inrobics Care">
+  <title>Mocks del TFM · Inrobics Care</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17233b;
+      --muted: #66718a;
+      --line: #dce3ef;
+      --surface: #ffffff;
+      --accent: #2d6cdf;
+      --accent-dark: #1c4fae;
+      --background: #f5f8fc;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--background);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+    main { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .hero { padding: 72px 0 42px; }
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--accent);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    h1 { max-width: 760px; margin: 0; font-size: clamp(2.2rem, 5vw, 4.4rem); line-height: 1.03; letter-spacing: -.045em; }
+    .intro { max-width: 690px; margin: 22px 0 0; color: var(--muted); font-size: 1.1rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 16px; padding-bottom: 52px; }
+    .card {
+      display: flex;
+      min-height: 220px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--surface);
+      box-shadow: 0 12px 30px rgba(23, 35, 59, .06);
+    }
+    .number { color: var(--accent); font-size: .82rem; font-weight: 800; letter-spacing: .08em; }
+    h2 { margin: 14px 0 8px; font-size: 1.25rem; line-height: 1.2; }
+    .card p { margin: 0; color: var(--muted); font-size: .95rem; }
+    .link {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      color: var(--accent-dark);
+      font-weight: 750;
+      text-decoration: none;
+    }
+    .link:hover, .link:focus-visible { text-decoration: underline; }
+    footer { padding: 0 0 34px; color: var(--muted); font-size: .86rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <p class="eyebrow">TFM · Inrobics Care</p>
+      <h1>Mocks interactivos del proyecto</h1>
+      <p class="intro">Accede a las distintas pantallas y flujos diseñados para explorar la experiencia de Inrobics Care.</p>
+    </header>
+
+    <section class="grid" aria-label="Listado de mocks">
+      <article class="card">
+        <div>
+          <span class="number">A1</span>
+          <h2>Landing principal</h2>
+          <p>Presentación del servicio y propuesta de valor.</p>
+        </div>
+        <a class="link" href="A1_Landing_Inrobics_Care.html">Abrir mock <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card">
+        <div>
+          <span class="number">A2</span>
+          <h2>Demo por voz con Alma</h2>
+          <p>Exploración de la interacción conversacional.</p>
+        </div>
+        <a class="link" href="A2_Demo_voz_Alma.html">Abrir mock <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card">
+        <div>
+          <span class="number">A3</span>
+          <h2>Calculadora de ahorro</h2>
+          <p>Estimación comparativa del ahorro potencial.</p>
+        </div>
+        <a class="link" href="A3_Calculadora_ahorro.html">Abrir mock <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card">
+        <div>
+          <span class="number">A4</span>
+          <h2>Prueba de 30 días</h2>
+          <p>Flujo de alta para iniciar la prueba del servicio.</p>
+        </div>
+        <a class="link" href="A4_Alta_prueba_30_dias.html">Abrir mock <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card">
+        <div>
+          <span class="number">A5</span>
+          <h2>Onboarding de María</h2>
+          <p>Primeros pasos de la usuaria dentro de la aplicación.</p>
+        </div>
+        <a class="link" href="A5_Onboarding_app_Maria.html">Abrir mock <span aria-hidden="true">→</span></a>
+      </article>
+    </section>
+
+    <footer>Prototipos navegables · Trabajo Fin de Máster</footer>
+  </main>
+</body>
+</html>

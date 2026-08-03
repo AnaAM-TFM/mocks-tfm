@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inrobics Care — Landing principal (mockup A1)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --azul:#008CFF; --azul-osc:#0179DB; --azul-cla:#3EA8FF; --celeste:#9AEDFF;
+  --neutro:#EFEFEA; --neutro2:#E9E9E0; --negro:#1F1F1F; --magenta:#E800F0;
+  --link:#0165B8;
+  --max:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Bricolage Grotesque",Helvetica,Arial,sans-serif;
+  font-size:18px; line-height:1.65; color:var(--negro); background:#fff;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+p{max-width:68ch}
+
+/* ---------- barra superior ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--neutro2)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:76px}
+.logo{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+.logo b{font-size:26px;font-weight:800;letter-spacing:-.02em;color:var(--azul-osc)}
+.logo .desc{font-size:20px;font-weight:600;color:var(--negro);position:relative;padding-left:14px}
+.logo .desc::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:7px;height:7px;border-radius:50%;background:var(--magenta)}
+.nav nav{display:flex;gap:28px}
+.nav nav a{color:var(--negro);text-decoration:none;font-weight:500;font-size:17px}
+.nav nav a:hover{text-decoration:underline}
+@media(max-width:860px){.nav nav{display:none}}
+
+/* ---------- botones ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  min-height:64px;padding:0 34px;border:0;border-radius:999px;cursor:pointer;
+  font-family:inherit;font-size:21px;font-weight:700;letter-spacing:-.01em;
+  text-decoration:none;transition:transform .15s ease, box-shadow .15s ease;
+}
+.btn-primario{background:var(--azul);color:#fff;box-shadow:0 6px 20px rgba(0,140,255,.28)}
+.btn-primario:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,140,255,.36)}
+.btn-secundario{background:#fff;color:var(--negro);border:2px solid var(--neutro2);min-height:60px;font-size:19px}
+.btn-secundario:hover{border-color:var(--azul)}
+.btn:focus-visible{outline:3px solid var(--negro);outline-offset:3px}
+
+/* ---------- hero ---------- */
+.hero{padding:84px 0 64px;background:
+  radial-gradient(120% 90% at 85% 0%, rgba(154,237,255,.35) 0%, rgba(255,255,255,0) 60%)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+@media(max-width:940px){.hero-grid{grid-template-columns:1fr;gap:40px}}
+.kicker{display:inline-flex;align-items:center;gap:10px;background:var(--neutro);border-radius:999px;padding:9px 18px;font-size:16px;font-weight:600;margin-bottom:26px}
+.kicker span{width:8px;height:8px;border-radius:50%;background:var(--magenta)}
+h1{font-size:clamp(38px,5vw,60px);line-height:1.08;letter-spacing:-.03em;font-weight:800;margin-bottom:22px;max-width:15ch}
+.lead{font-size:22px;line-height:1.55;margin-bottom:34px;max-width:52ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.nota-cta{font-size:16px;color:#555;margin-top:16px}
+
+/* tarjeta de la demo */
+.demo-card{
+  background:#fff;border:1px solid var(--neutro2);border-radius:28px;padding:30px;
+  box-shadow:0 24px 60px rgba(31,31,31,.10);
+}
+.demo-top{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.alma-dot{width:52px;height:52px;border-radius:50%;background:linear-gradient(140deg,#84E6FF 0%,#008CFF 100%);flex:none;position:relative}
+.alma-dot::after{content:"";position:absolute;inset:14px;border-radius:50%;background:#fff;opacity:.9}
+.alma-nom{font-weight:700;font-size:19px}
+.alma-est{font-size:15px;color:#555}
+.escucha{margin-left:auto;display:inline-flex;align-items:center;gap:9px;background:var(--neutro);padding:8px 15px;border-radius:999px;font-size:14px;font-weight:600}
+.escucha i{width:9px;height:9px;border-radius:50%;background:#02AF08;display:inline-block;animation:lat 2.4s ease-in-out infinite}
+@keyframes lat{0%,100%{opacity:1}50%{opacity:.35}}
+.burbuja{padding:16px 20px;border-radius:20px;margin-bottom:12px;font-size:19px;line-height:1.5}
+.b-alma{background:var(--neutro);border-bottom-left-radius:6px}
+.b-user{background:#E7F3FF;border-bottom-right-radius:6px;margin-left:auto;max-width:82%}
+.ondas{display:flex;align-items:flex-end;gap:5px;height:34px;margin-top:20px;justify-content:center}
+.ondas i{width:5px;background:var(--azul-cla);border-radius:3px;animation:o 1.3s ease-in-out infinite}
+.ondas i:nth-child(1){height:12px;animation-delay:0s}
+.ondas i:nth-child(2){height:26px;animation-delay:.12s}
+.ondas i:nth-child(3){height:34px;animation-delay:.24s}
+.ondas i:nth-child(4){height:20px;animation-delay:.36s}
+.ondas i:nth-child(5){height:30px;animation-delay:.48s}
+.ondas i:nth-child(6){height:14px;animation-delay:.6s}
+@keyframes o{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
+
+/* ---------- barra de confianza ---------- */
+.confianza{border-top:1px solid var(--neutro2);border-bottom:1px solid var(--neutro2);background:var(--neutro);padding:26px 0}
+.confianza ul{display:flex;flex-wrap:wrap;gap:14px 44px;list-style:none;justify-content:center}
+.confianza li{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600}
+.tick{width:22px;height:22px;flex:none;border-radius:50%;background:var(--azul);position:relative}
+.tick::after{content:"";position:absolute;left:7px;top:4px;width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+
+/* ---------- secciones ---------- */
+section{padding:88px 0}
+h2{font-size:clamp(30px,3.6vw,42px);line-height:1.15;letter-spacing:-.025em;font-weight:800;margin-bottom:18px;max-width:20ch}
+.sub{font-size:20px;color:#3d3d3d;margin-bottom:48px;max-width:58ch}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:900px){.cards{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--neutro2);border-radius:24px;padding:32px}
+.card .ico{width:56px;height:56px;border-radius:16px;background:var(--neutro);display:grid;place-items:center;margin-bottom:20px;font-size:26px}
+.card h3{font-size:22px;font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
+.card p{font-size:17px;color:#3d3d3d}
+
+/* franja oscura */
+.franja{background:var(--negro);color:#fff}
+.franja h2{color:#fff}
+.franja .sub{color:#c9c9c9}
+.pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;counter-reset:p}
+@media(max-width:900px){.pasos{grid-template-columns:1fr}}
+.paso{counter-increment:p}
+.paso::before{content:counter(p);display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:linear-gradient(140deg,#84E6FF,#008CFF);color:var(--negro);font-weight:800;font-size:20px;margin-bottom:18px}
+.paso h3{font-size:21px;margin-bottom:8px;font-weight:700}
+.paso p{color:#c9c9c9;font-size:17px}
+
+/* testimonios */
+.testis{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+@media(max-width:900px){.testis{grid-template-columns:1fr}}
+.testi{background:var(--neutro);border-radius:24px;padding:32px}
+.testi blockquote{font-size:21px;line-height:1.5;font-weight:500;margin-bottom:22px}
+.testi .quien{display:flex;align-items:center;gap:14px}
+.avatar{width:52px;height:52px;border-radius:50%;background:var(--neutro2);flex:none;display:grid;place-items:center;font-weight:700;color:#555}
+.quien b{display:block;font-size:17px}
+.quien span{font-size:15px;color:#555}
+.verif{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--link);margin-top:6px}
+
+/* FAQ */
+details{border-bottom:1px solid var(--neutro2);padding:22px 0}
+summary{font-size:21px;font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;align-items:center;min-height:48px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:30px;font-weight:400;color:var(--azul-osc);flex:none}
+details[open] summary::after{content:"–"}
+details p{margin-top:14px;font-size:18px;color:#3d3d3d}
+
+/* cierre */
+.cierre{background:linear-gradient(135deg,#84E6FF 0%,#008CFF 100%);color:#fff;text-align:center}
+.cierre h2{color:#fff;margin:0 auto 16px;max-width:18ch}
+.cierre p{color:#f0faff;font-size:20px;margin:0 auto 34px;max-width:46ch}
+.cierre .btn-primario{background:#fff;color:var(--azul-osc);box-shadow:0 8px 26px rgba(0,0,0,.18)}
+
+footer{background:var(--negro);color:#c9c9c9;padding:48px 0;font-size:15px}
+footer .fl{display:flex;flex-wrap:wrap;gap:18px 30px;justify-content:space-between;align-items:center}
+footer a{color:#c9c9c9}
+.claim{font-size:17px;color:#fff;font-weight:600}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#"><b>inrobics</b><span class="desc">Care</span></a>
+    <nav>
+      <a href="#como">Cómo funciona</a>
+      <a href="#familias">Familias</a>
+      <a href="#precio">Precio</a>
+      <a href="#dudas">Dudas frecuentes</a>
+    </nav>
+    <a class="btn btn-secundario" href="#demo">Hablar con Alma</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker"><span></span>Acompañamiento en casa · sin aparatos</span>
+      <h1>No siempre puedes estar. Alma sí.</h1>
+      <p class="lead">Alma acompaña cada día a quien vive solo en casa: conversa,
+        propone moverse un rato, recuerda lo importante y mantiene informada a la
+        familia. Sin instalar nada, en la tablet o el móvil que ya hay en casa.</p>
+      <div class="cta-row">
+        <a class="btn btn-primario" href="#demo">Hablar con Alma ahora</a>
+        <a class="btn btn-secundario" href="#precio">Ver cuánto cuesta</a>
+      </div>
+      <p class="nota-cta">Dos minutos. Sin registrarte y sin dejar ningún dato.</p>
+    </div>
+
+    <div class="demo-card" id="demo">
+      <div class="demo-top">
+        <div class="alma-dot"></div>
+        <div>
+          <div class="alma-nom">Alma</div>
+          <div class="alma-est">La IA social de Inrobics</div>
+        </div>
+        <span class="escucha"><i></i> Te escucha</span>
+      </div>
+      <div class="burbuja b-alma">Buenos días, María. ¿Qué tal ha dormido?</div>
+      <div class="burbuja b-user">Bien, un poco cansada.</div>
+      <div class="burbuja b-alma">Entonces vamos con algo suave. ¿Estiramos los
+        brazos cinco minutos y luego le cuento cómo va el día?</div>
+      <div class="ondas"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <p style="text-align:center;font-size:15px;color:#555;margin-top:14px">
+        Pulsa para hablar. Alma solo escucha cuando tú se lo pides.</p>
+    </div>
+  </div>
+</div>
+
+<div class="confianza">
+  <div class="wrap">
+    <ul>
+      <li><span class="tick"></span>Nacido en la Universidad Carlos III de Madrid</li>
+      <li><span class="tick"></span>Alma es inteligencia artificial, y te lo decimos siempre</li>
+      <li><span class="tick"></span>Datos alojados en Europa</li>
+      <li><span class="tick"></span>Sin aparatos que instalar</li>
+    </ul>
+  </div>
+</div>
+
+<section id="como">
+  <div class="wrap">
+    <h2>Qué hace Alma en el día a día</h2>
+    <p class="sub">No es un botón de emergencia. Es compañía que se nota todos los
+      días, no solo el día malo.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="ico">☕</div>
+        <h3>Conversación de verdad</h3>
+        <p>Alma saluda, pregunta, escucha y responde. Se adapta al ritmo y a la
+          forma de hablar de cada persona, no al revés.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🤸</div>
+        <h3>Moverse y pensar un rato</h3>
+        <p>Rutinas cortas de actividad física y cognitiva que empiezan fáciles y
+          celebran lo pequeño.</p>
+      </div>
+      <div class="card">
+        <div class="ico">💬</div>
+        <h3>La familia, tranquila</h3>
+        <p>Cada quince días la familia recibe un resumen de cómo va la cosa. Para
+          llamar y hablar, no para llamar y comprobar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="franja" id="familias">
+  <div class="wrap">
+    <h2>Verlo es entenderlo</h2>
+    <p class="sub">Por eso lo primero que te ofrecemos no es un folleto: es hablar
+      con Alma.</p>
+    <div class="pasos">
+      <div class="paso">
+        <h3>Pruébalo tú</h3>
+        <p>Dos minutos de conversación real con Alma, aquí mismo y sin registrarte.</p>
+      </div>
+      <div class="paso">
+        <h3>Enséñalo en persona</h3>
+        <p>Con tu propio móvil, sentados en el sofá. Si no convence, ahí se acaba.</p>
+      </div>
+      <div class="paso">
+        <h3>30 días para decidir</h3>
+        <p>Te acompañamos día a día durante el primer mes. Cancelas en un clic
+          cuando quieras.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Familias que ya lo usan</h2>
+    <p class="sub">Testimonios con nombre y consentimiento. Ninguna reseña anónima.</p>
+    <div class="testis">
+      <div class="testi">
+        <blockquote>“Antes llamaba para comprobar que todo iba bien. Ahora llamo
+          para que me cuenten qué han hecho con Alma.”</blockquote>
+        <div class="quien">
+          <div class="avatar">JM</div>
+          <div>
+            <b>José Manuel R.</b>
+            <span>Familiar cuidador · Madrid · 4 meses de uso</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi">
+        <blockquote>“Al principio pensé que era un aparato de esos para viejos.
+          Luego vi que me hablaba a mí, no de mí.”</blockquote>
+        <div class="quien">
+          <div class="avatar">MC</div>
+          <div>
+            <b>María del Carmen L.</b>
+            <span>Usuaria · 78 años · Getafe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="precio" style="background:var(--neutro)">
+  <div class="wrap">
+    <h2>Lo que cuesta, comparado con las alternativas reales</h2>
+    <p class="sub">Una residencia privada ronda los 2.040-2.118 € al mes. Aquí está
+      la cuenta entera, incluida la parte en la que Inrobics Care no es la mejor
+      opción.</p>
+    <a class="btn btn-primario" href="#">Calcular mi caso</a>
+    <a class="btn btn-secundario" href="#" style="margin-left:12px">Qué cubre la teleasistencia pública</a>
+  </div>
+</section>
+
+<section id="dudas">
+  <div class="wrap" style="max-width:820px">
+    <h2>Las dudas que tendrías igualmente</h2>
+    <p class="sub">Preferimos contestarlas antes de que las escribas.</p>
+
+    <details open>
+      <summary>¿Sabrá usarlo una persona mayor?</summary>
+      <p>Alma habla primero. No hay menús que aprender ni contraseñas que recordar:
+        se responde con la voz, igual que a una persona. La primera semana ajustamos
+        el reconocimiento a su forma de hablar, que es donde suelen fallar estas cosas.</p>
+    </details>
+    <details>
+      <summary>¿Escucha todo el día?</summary>
+      <p>No. Alma solo escucha cuando se le pide, y siempre que lo hace aparece un
+        aviso visible en la pantalla. Los datos se pueden consultar, descargar o
+        borrar en cualquier momento.</p>
+    </details>
+    <details>
+      <summary>¿Y si no funciona? ¿Hay permanencia?</summary>
+      <p>No hay permanencia. Cancelas en un clic desde tu cuenta y te avisamos por
+        correo antes del primer cobro, al terminar los 30 días de prueba.</p>
+    </details>
+    <details>
+      <summary>¿Sustituye a la teleasistencia pública?</summary>
+      <p>No, y no queremos que lo parezca. La teleasistencia cubre la emergencia.
+        Inrobics Care cubre los otros 364 días: compañía, actividad y saber cómo va.</p>
+    </details>
+  </div>
+</section>
+
+<section class="cierre">
+  <div class="wrap">
+    <h2>Dos minutos y lo entiendes</h2>
+    <p>Habla con Alma ahora mismo. Sin registro, sin datos, sin compromiso.</p>
+    <a class="btn btn-primario" href="#demo">Hablar con Alma</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fl">
+    <div>
+      <div class="claim">Tecnología al servicio de las personas</div>
+      <div style="margin-top:8px">Inrobics Social Robotics S.L. · Parque Científico UC3M, Leganés (Madrid)</div>
+    </div>
+    <div style="display:flex;gap:22px;flex-wrap:wrap">
+      <a href="#">Privacidad</a><a href="#">Accesibilidad</a><a href="#">Aviso legal</a><a href="#">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

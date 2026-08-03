@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inrobics Care — Alta de la prueba de 30 días (mockup A4)</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#008CFF;--azul-osc:#0179DB;--neutro:#EFEFEA;--neutro2:#E9E9E0;--negro:#1F1F1F;--magenta:#E800F0;--link:#0165B8;--verde:#02AF08}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Bricolage Grotesque",Helvetica,Arial,sans-serif;font-size:18px;line-height:1.65;color:var(--negro);background:var(--neutro)}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+p{max-width:66ch}
+header{background:#fff;border-bottom:1px solid var(--neutro2);padding:20px 0}
+.logo{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+.logo b{font-size:24px;font-weight:800;letter-spacing:-.02em;color:var(--azul-osc)}
+.logo .desc{font-size:19px;font-weight:600;position:relative;padding-left:14px;color:var(--negro)}
+.logo .desc::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:7px;height:7px;border-radius:50%;background:var(--magenta)}
+
+.grid{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;padding:48px 0 72px;align-items:start}
+@media(max-width:920px){.grid{grid-template-columns:1fr}}
+
+.form-card{background:#fff;border-radius:26px;padding:40px}
+h1{font-size:clamp(28px,3.6vw,38px);line-height:1.15;letter-spacing:-.025em;font-weight:800;margin-bottom:10px;max-width:17ch}
+.sub{font-size:19px;color:#3d3d3d;margin-bottom:32px}
+
+/* ---- aviso de salida: la pieza más importante de la pantalla ---- */
+.salida{
+  border:2px solid var(--azul);background:#E7F3FF;border-radius:22px;
+  padding:26px 28px;margin-bottom:34px;
+}
+.salida h2{font-size:22px;font-weight:800;letter-spacing:-.015em;margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.salida h2 .esc{width:34px;height:34px;border-radius:50%;background:var(--azul);display:grid;place-items:center;flex:none}
+.salida h2 .esc::after{content:"";width:9px;height:15px;border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg);margin-top:-3px}
+.salida ul{list-style:none;display:grid;gap:12px}
+.salida li{display:flex;gap:12px;font-size:18px;font-weight:600;line-height:1.45}
+.salida li::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--azul);flex:none;margin-top:9px}
+.salida .fecha{margin-top:16px;font-size:16px;color:#2b2b2b;font-weight:500}
+
+fieldset{border:0;margin-bottom:28px}
+legend{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#555;margin-bottom:16px}
+label{display:block;font-weight:600;font-size:17px;margin-bottom:7px}
+.campo{margin-bottom:18px}
+input[type=text],input[type=email],input[type=tel]{
+  width:100%;min-height:60px;padding:0 18px;font-family:inherit;font-size:19px;
+  border:2px solid var(--neutro2);border-radius:14px;background:#fff;color:var(--negro);
+}
+input:focus{outline:3px solid var(--negro);outline-offset:2px;border-color:var(--azul)}
+.pista{font-size:15px;color:#555;margin-top:6px}
+.fila{display:grid;grid-template-columns:1fr 140px 140px;gap:14px}
+@media(max-width:620px){.fila{grid-template-columns:1fr}}
+
+.tarjeta-box{background:var(--neutro);border-radius:18px;padding:22px;margin-top:6px}
+.tarjeta-box .nota{display:flex;gap:12px;align-items:flex-start;font-size:16px;color:#3d3d3d;margin-bottom:18px}
+.candado{width:26px;height:26px;flex:none;border-radius:7px;background:var(--azul-osc);position:relative}
+.candado::after{content:"";position:absolute;left:9px;top:12px;width:8px;height:7px;background:#fff;border-radius:1px}
+.candado::before{content:"";position:absolute;left:9.5px;top:7px;width:7px;height:7px;border:2px solid #fff;border-bottom:0;border-radius:4px 4px 0 0}
+
+.check{display:flex;gap:14px;align-items:flex-start;margin-bottom:26px}
+.check input{width:30px;height:30px;flex:none;accent-color:var(--azul);margin-top:2px}
+.check label{font-size:16px;font-weight:500;color:#3d3d3d;margin:0}
+.check a{color:var(--link)}
+
+.btn{display:flex;width:100%;align-items:center;justify-content:center;min-height:68px;border:0;border-radius:999px;cursor:pointer;font-family:inherit;font-size:21px;font-weight:700;background:var(--azul);color:#fff;box-shadow:0 6px 20px rgba(0,140,255,.28)}
+.btn:focus-visible{outline:3px solid var(--negro);outline-offset:3px}
+.bajo-btn{text-align:center;font-size:16px;color:#555;margin-top:16px}
+.bajo-btn a{color:var(--link);font-weight:600}
+
+/* columna derecha */
+aside{position:sticky;top:24px;display:grid;gap:20px}
+.resumen{background:#fff;border-radius:26px;padding:30px}
+.resumen h3{font-size:20px;font-weight:800;margin-bottom:18px;letter-spacing:-.01em}
+.linea{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--neutro2);font-size:17px}
+.linea:last-of-type{border:0}
+.linea b{font-weight:700}
+.hoy{color:var(--verde);font-weight:800;font-size:20px}
+.timeline{background:var(--negro);color:#fff;border-radius:26px;padding:30px}
+.timeline h3{font-size:19px;font-weight:800;margin-bottom:20px;color:#fff}
+.tl{list-style:none;display:grid;gap:18px}
+.tl li{display:grid;grid-template-columns:74px 1fr;gap:14px;align-items:start;font-size:16px;color:#c9c9c9;line-height:1.45}
+.tl b{color:#fff;font-size:15px;font-weight:700;background:rgba(255,255,255,.12);border-radius:999px;padding:4px 10px;text-align:center}
+</style>
+</head>
+<body>
+
+<header><div class="wrap"><a class="logo" href="#"><b>inrobics</b><span class="desc">Care</span></a></div></header>
+
+<div class="wrap grid">
+
+  <div class="form-card">
+    <h1>Empieza los 30 días</h1>
+    <p class="sub">Un solo paso. No cobramos nada hoy.</p>
+
+    <div class="salida">
+      <h2><span class="esc"></span>Salir es tan fácil como entrar</h2>
+      <ul>
+        <li>Cancelas en <strong>un solo clic</strong> desde tu cuenta, sin llamar a nadie</li>
+        <li>Te avisamos por correo <strong>3 días antes</strong> del primer cobro</li>
+        <li>Sin permanencia y sin penalización, hoy y siempre</li>
+      </ul>
+      <p class="fecha">Si no cancelas, el primer cobro de 39 € sería el
+        <strong>2 de septiembre de 2026</strong>.</p>
+    </div>
+
+    <form>
+      <fieldset>
+        <legend>Tus datos</legend>
+        <div class="campo">
+          <label for="n">Tu nombre</label>
+          <input type="text" id="n" autocomplete="name" placeholder="José Manuel">
+        </div>
+        <div class="campo">
+          <label for="e">Tu correo electrónico</label>
+          <input type="email" id="e" autocomplete="email" placeholder="jose.manuel@correo.es">
+          <p class="pista">Aquí te enviamos la guía de instalación y los avisos de cobro.</p>
+        </div>
+        <div class="campo">
+          <label for="t">Tu teléfono móvil</label>
+          <input type="tel" id="t" autocomplete="tel" placeholder="600 000 000">
+          <p class="pista">Solo para el acompañamiento del primer mes. Nunca para vender.</p>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Método de pago</legend>
+        <div class="tarjeta-box">
+          <div class="nota">
+            <span class="candado"></span>
+            <span>Guardamos la tarjeta para no interrumpirte al final de la prueba.
+              <strong>Hoy no se cobra nada</strong> y puedes borrarla cuando quieras.</span>
+          </div>
+          <div class="campo">
+            <label for="tc">Número de tarjeta</label>
+            <input type="text" id="tc" inputmode="numeric" placeholder="0000 0000 0000 0000">
+          </div>
+          <div class="fila">
+            <div class="campo" style="margin:0">
+              <label for="ti">Titular</label>
+              <input type="text" id="ti" placeholder="J. M. Rodríguez">
+            </div>
+            <div class="campo" style="margin:0">
+              <label for="cad">Caducidad</label>
+              <input type="text" id="cad" placeholder="MM/AA">
+            </div>
+            <div class="campo" style="margin:0">
+              <label for="cvv">CVV</label>
+              <input type="text" id="cvv" placeholder="123">
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="check">
+        <input type="checkbox" id="c1">
+        <label for="c1">He leído cómo trata Inrobics mis datos y los de mi familiar, y
+          acepto las <a href="#">condiciones del servicio</a>. Alma es un sistema de
+          inteligencia artificial y se identifica siempre como tal.</label>
+      </div>
+
+      <button class="btn" type="button">Empezar los 30 días gratis</button>
+      <p class="bajo-btn">¿Prefieres verlo antes con calma?
+        <a href="#">Habla dos minutos con Alma</a>, sin dejar ningún dato.</p>
+    </form>
+  </div>
+
+  <aside>
+    <div class="resumen">
+      <h3>Resumen</h3>
+      <div class="linea"><span>Inrobics Care · plan mensual</span><b>39 €/mes</b></div>
+      <div class="linea"><span>Aparatos o instalación</span><b>0 €</b></div>
+      <div class="linea"><span>Permanencia</span><b>Ninguna</b></div>
+      <div class="linea"><span>A pagar hoy</span><span class="hoy">0 €</span></div>
+    </div>
+
+    <div class="timeline">
+      <h3>Cómo van a ser estos 30 días</h3>
+      <ul class="tl">
+        <li><b>Hoy</b><span>Recibes la guía y el guion para enseñárselo sin agobiarla.</span></li>
+        <li><b>Día 1</b><span>Alma la saluda por primera vez y ajusta su voz.</span></li>
+        <li><b>Día 3</b><span>Te contamos cómo ha ido el arranque. Si no lo usa, te llamamos.</span></li>
+        <li><b>Día 7</b><span>Primer resumen con lo que ha hecho durante la semana.</span></li>
+        <li><b>Día 27</b><span>Aviso del cobro, con el botón de cancelar al lado.</span></li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+</body>
+</html>
