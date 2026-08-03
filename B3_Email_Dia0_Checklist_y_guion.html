@@ -63,6 +63,25 @@ h2{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;c
 .porque{font-size:15px;color:#b9c0c8;margin:12px 0 0;line-height:1.55}
 .porque b{color:#fff}
 
+
+/* guion en formato instrucciones */
+.grupo{margin-top:26px}
+.gcab{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.gic{width:38px;height:38px;flex:none;border-radius:50%;display:grid;place-items:center;font-size:18px;font-weight:800}
+.gic.ok{background:var(--azul);color:#fff}
+.gic.no{background:transparent;border:2.2px solid #7a828b;color:#aeb5bd}
+.get{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:7px 15px;border-radius:6px}
+.get.ok{background:#E7F3FF;color:#0a4d86}
+.get.no{background:rgba(255,255,255,.10);color:#c9c9c9}
+.ins{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:15px 0;border-top:1px solid rgba(255,255,255,.14)}
+.grupo .ins:first-of-type{border-top:0;padding-top:2px}
+.ins .n{width:36px;height:36px;border-radius:50%;background:var(--azul);color:#fff;font-weight:800;font-size:17px;display:grid;place-items:center}
+.ins .n.x{background:transparent;border:2.2px solid #7a828b;color:#aeb5bd;font-size:18px}
+.ins h3{font-size:16px;font-weight:800;margin:0 0 4px;letter-spacing:-.01em}
+.ins p{font-size:15px;line-height:1.52;color:#c9c9c9;margin:0}
+.ins .frase{display:block;margin-top:7px;font-size:16px;font-weight:700;color:#9AEDFF}
+.ins .frase.tach{color:#9aa3ad;text-decoration:line-through;text-decoration-thickness:1px}
+
 /* siguiente */
 .next{list-style:none;margin:0;padding:0}
 .next li{display:grid;grid-template-columns:86px 1fr;gap:14px;padding:12px 0;font-size:16px;color:#3d3d3d;line-height:1.5}
@@ -147,57 +166,87 @@ h2{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;c
   <div class="pad guion">
     <h2>Después</h2>
     <p class="h2sub">Cómo enseñárselo sin agobiarla</p>
-    <p class="h2nota">Cuatro momentos y qué decir en cada uno. Lo hemos aprendido
-      de las familias que ya han pasado por aquí.</p>
+    <p class="h2nota">Cuatro momentos, qué decir en cada uno y qué conviene evitar.
+      Lo hemos aprendido de las familias que ya han pasado por aquí.</p>
 
-    <div class="mom">
-      <div class="cuando">1 · Cuando se lo propones</div>
-      <div class="par">
-        <div class="op si"><div class="et">Mejor así</div>
-          <p>“He visto una cosa que me ha gustado. ¿La probamos juntos un rato?”</p></div>
-        <div class="op no"><div class="et">Mejor no</div>
-          <p>“Te he traído algo para que no estés tan sola.”</p></div>
+    <div class="grupo">
+      <div class="gcab"><span class="gic ok">&#10003;</span><span class="get ok">Qu&eacute; decir</span></div>
+
+      <div class="ins">
+        <span class="n">1</span>
+        <div>
+          <h3>Cuando se lo propone</h3>
+          <p>Pres&eacute;ntelo como un plan compartido y no como una soluci&oacute;n a un problema suyo.</p>
+          <span class="frase">&laquo;He visto una cosa que me ha gustado. &iquest;La probamos juntos un rato?&raquo;</span>
+        </div>
       </div>
-      <p class="porque"><b>Por qué.</b> La segunda frase la coloca como un problema
-        que hay que resolver. La primera la invita a acompañarte a ti.</p>
+
+      <div class="ins">
+        <span class="n">2</span>
+        <div>
+          <h3>La primera vez que le habla</h3>
+          <p>Guarde silencio y deje que hable ella, aunque tarde en arrancar o se r&iacute;a.</p>
+          <span class="frase">&laquo;H&aacute;blale t&uacute;, que a m&iacute; no me hace caso.&raquo;</span>
+        </div>
+      </div>
+
+      <div class="ins">
+        <span class="n">3</span>
+        <div>
+          <h3>Si Alma no la entiende</h3>
+          <p>Coloque el fallo en la m&aacute;quina. Durante la primera semana Alma ajusta el reconocimiento a su forma de hablar.</p>
+          <span class="frase">&laquo;Es normal, todav&iacute;a est&aacute; aprendiendo c&oacute;mo hablas t&uacute;.&raquo;</span>
+        </div>
+      </div>
+
+      <div class="ins">
+        <span class="n">4</span>
+        <div>
+          <h3>Al despedirse</h3>
+          <p>D&eacute;jelo como una posibilidad abierta, nunca como una tarea pendiente.</p>
+          <span class="frase">&laquo;Te la dejo por si te apetece. Ma&ntilde;ana me cuentas.&raquo;</span>
+        </div>
+      </div>
     </div>
 
-    <div class="mom">
-      <div class="cuando">2 · La primera vez que le habla</div>
-      <div class="par">
-        <div class="op si"><div class="et">Mejor así</div>
-          <p>Callarte y dejar que hable ella. Aunque tarde. Aunque se ría.</p></div>
-        <div class="op no"><div class="et">Mejor no</div>
-          <p>Contestar tú por ella o repetirle lo que tiene que decir.</p></div>
-      </div>
-      <p class="porque"><b>Por qué.</b> Si contestas tú, Alma aprende tu voz y no la
-        suya, y ella entiende que necesita intermediario. Tiene que ser suyo desde
-        el primer minuto.</p>
-    </div>
+    <div class="grupo">
+      <div class="gcab"><span class="gic no">&#10005;</span><span class="get no">Qu&eacute; es mejor evitar</span></div>
 
-    <div class="mom">
-      <div class="cuando">3 · Si Alma no la entiende</div>
-      <div class="par">
-        <div class="op si"><div class="et">Mejor así</div>
-          <p>“Es normal, todavía está aprendiendo cómo hablas tú.”</p></div>
-        <div class="op no"><div class="et">Mejor no</div>
-          <p>“Tienes que hablar más claro” o “más alto”.</p></div>
+      <div class="ins">
+        <span class="n x">&#10005;</span>
+        <div>
+          <h3>Nombrar la soledad</h3>
+          <p>La sit&uacute;a como alguien a quien hay que resolver, y activa el rechazo que describe su propio recorrido.</p>
+          <span class="frase tach">&laquo;Te he tra&iacute;do algo para que no est&eacute;s tan sola.&raquo;</span>
+        </div>
       </div>
-      <p class="porque"><b>Por qué.</b> El fallo es de la máquina, no de ella. En
-        cuanto siente que el problema es suyo, lo apaga y no vuelve. La primera
-        semana Alma ajusta el reconocimiento a su forma de hablar.</p>
-    </div>
 
-    <div class="mom">
-      <div class="cuando">4 · Cuando te vas de su casa</div>
-      <div class="par">
-        <div class="op si"><div class="et">Mejor así</div>
-          <p>“Te la dejo por si te apetece. Mañana me cuentas.”</p></div>
-        <div class="op no"><div class="et">Mejor no</div>
-          <p>“Acuérdate de usarla todos los días, ¿eh?”</p></div>
+      <div class="ins">
+        <span class="n x">&#10005;</span>
+        <div>
+          <h3>Contestar usted por ella</h3>
+          <p>Alma aprender&iacute;a su voz y no la de ella, y ella entender&iacute;a que necesita intermediario para usarlo.</p>
+          <span class="frase tach">&laquo;Dile que quieres hacer ejercicio.&raquo;</span>
+        </div>
       </div>
-      <p class="porque"><b>Por qué.</b> En cuanto se convierte en un deber, deja de
-        ser compañía y pasa a ser una tarea más. Y las tareas se abandonan.</p>
+
+      <div class="ins">
+        <span class="n x">&#10005;</span>
+        <div>
+          <h3>Corregir c&oacute;mo habla</h3>
+          <p>Convierte un fallo t&eacute;cnico en una culpa suya. Es la causa m&aacute;s frecuente de abandono en los primeros d&iacute;as.</p>
+          <span class="frase tach">&laquo;Tienes que hablar m&aacute;s claro&raquo; &middot; &laquo;m&aacute;s alto&raquo;.</span>
+        </div>
+      </div>
+
+      <div class="ins">
+        <span class="n x">&#10005;</span>
+        <div>
+          <h3>Convertirlo en una obligaci&oacute;n</h3>
+          <p>En cuanto pasa a ser un deber deja de ser compa&ntilde;&iacute;a, y los deberes se abandonan.</p>
+          <span class="frase tach">&laquo;Acu&eacute;rdate de usarla todos los d&iacute;as, &iquest;eh?&raquo;</span>
+        </div>
+      </div>
     </div>
   </div>
 
