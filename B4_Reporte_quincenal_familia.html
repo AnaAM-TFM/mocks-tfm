@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inrobics Care — Reporte quincenal a la familia (acción 12)</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#008CFF;--azul-osc:#0179DB;--celeste:#9AEDFF;--neutro:#EFEFEA;--neutro2:#E9E9E0;--negro:#1F1F1F;--magenta:#E800F0;--link:#0165B8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#DDD8CF;font-family:"Bricolage Grotesque",Helvetica,Arial,sans-serif;color:var(--negro);padding:40px 16px 70px}
+.rot{max-width:640px;margin:0 auto 14px;font-size:14px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#5c5c5c}
+.mail{max-width:640px;margin:0 auto;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 22px 55px rgba(31,31,31,.16)}
+.pad{padding:34px 40px}
+@media(max-width:560px){.pad{padding:26px 22px}}
+.sep{height:1px;background:var(--neutro2);margin:0 40px}
+@media(max-width:560px){.sep{margin:0 22px}}
+
+.cab{padding:26px 40px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--neutro2)}
+.cab b{font-size:23px;font-weight:800;color:var(--azul-osc);letter-spacing:-.02em}
+.cab .desc{font-size:19px;font-weight:600;position:relative;padding-left:15px}
+.cab .desc::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:7px;height:7px;border-radius:50%;background:var(--magenta)}
+.cab .quin{margin-left:auto;font-size:13px;font-weight:700;background:var(--neutro);border-radius:999px;padding:7px 15px}
+
+/* cabecera cálida, sin estética de panel de control */
+.hero{background:linear-gradient(140deg,#84E6FF 0%,#008CFF 100%);color:#fff;padding:40px}
+.hero .peq{font-size:15px;opacity:.92;margin-bottom:8px}
+.hero h1{font-size:32px;line-height:1.22;letter-spacing:-.025em;font-weight:800;max-width:20ch}
+
+h2{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#5c5c5c;margin-bottom:6px}
+.h2sub{font-size:23px;font-weight:800;letter-spacing:-.02em;margin-bottom:20px}
+
+/* lo que ha hecho: frases, no métricas */
+.hechos{list-style:none}
+.hechos li{display:flex;gap:16px;padding:15px 0;border-bottom:1px dashed var(--neutro2);align-items:flex-start}
+.hechos li:last-child{border:0;padding-bottom:0}
+.ic{width:44px;height:44px;flex:none;border-radius:13px;background:var(--neutro);display:grid;place-items:center;font-size:21px}
+.hechos b{display:block;font-size:18px;font-weight:700;margin-bottom:2px;letter-spacing:-.01em}
+.hechos span{font-size:16px;line-height:1.55;color:#3d3d3d}
+
+/* constancia: puntos, sin porcentajes ni notas */
+.dias{background:var(--neutro);border-radius:18px;padding:22px 24px;margin-top:24px}
+.dias .t{font-size:15px;font-weight:700;margin-bottom:14px}
+.puntos{display:flex;gap:9px;flex-wrap:wrap}
+.puntos i{width:26px;height:26px;border-radius:50%;background:var(--azul);display:block}
+.puntos i.no{background:#DCD8D0}
+.dias .pie{font-size:14px;color:#5c5c5c;margin-top:13px}
+
+/* para hablar con ella */
+.hablar{background:#E7F3FF;border-radius:20px;padding:26px 28px;border-left:6px solid var(--azul)}
+.hablar .et{font-size:13px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#0a4d86;margin-bottom:10px}
+.hablar p{font-size:19px;line-height:1.55;font-weight:500}
+.hablar .frase{display:block;margin-top:12px;font-size:19px;font-weight:700;color:var(--azul-osc)}
+
+/* juntos */
+.juntos{display:flex;gap:20px;align-items:flex-start;background:var(--negro);color:#fff;border-radius:20px;padding:26px 28px}
+.juntos .num{width:46px;height:46px;flex:none;border-radius:50%;background:linear-gradient(140deg,#84E6FF,#008CFF);display:grid;place-items:center;font-size:22px}
+.juntos h3{font-size:20px;font-weight:800;margin-bottom:6px;letter-spacing:-.01em}
+.juntos p{font-size:16px;line-height:1.55;color:#c9c9c9}
+
+.promesa{background:var(--neutro);border-radius:18px;padding:22px 24px;display:flex;gap:14px;align-items:flex-start}
+.promesa .c{font-size:21px;line-height:1}
+.promesa p{font-size:15px;line-height:1.6;color:#3d3d3d}
+.promesa b{font-weight:700;color:var(--negro)}
+
+.cta{text-align:center;padding:6px 40px 36px}
+.btn{display:inline-block;background:var(--azul);color:#fff;text-decoration:none;font-size:18px;font-weight:700;padding:19px 34px;border-radius:999px}
+.cta .peq{font-size:15px;color:#5c5c5c;margin-top:14px}
+.cta .peq a{color:var(--link)}
+.pie2{background:var(--neutro);padding:26px 40px;font-size:13px;color:#5c5c5c;line-height:1.6}
+.pie2 a{color:var(--link)}
+</style>
+</head>
+<body>
+
+<p class="rot">Acción 12 · Reporte quincenal a la familia</p>
+
+<div class="mail">
+  <div class="cab">
+    <b>inrobics</b><span class="desc">Care</span>
+    <span class="quin">1 – 15 de octubre</span>
+  </div>
+
+  <div class="hero">
+    <p class="peq">Hola, José Manuel</p>
+    <h1>María ha tenido dos semanas tranquilas.</h1>
+  </div>
+
+  <div class="pad">
+    <h2>Lo que ha hecho</h2>
+    <p class="h2sub">Su quincena, contada</p>
+    <ul class="hechos">
+      <li>
+        <span class="ic">☕</span>
+        <span><b>Doce mañanas de conversación</b>
+        <span>Alma la saluda sobre las nueve y media. Se han quedado charlando un buen
+          rato casi todos los días.</span></span>
+      </li>
+      <li>
+        <span class="ic">🤸</span>
+        <span><b>Nueve rutinas completas</b>
+        <span>Sobre todo las de brazos y equilibrio. Las hace sentada, que es como
+          más cómoda se encuentra.</span></span>
+      </li>
+      <li>
+        <span class="ic">💊</span>
+        <span><b>Los recordatorios, al día</b>
+        <span>La pastilla de la tensión y el agua de la tarde. No ha hecho falta
+          repetírselos.</span></span>
+      </li>
+      <li>
+        <span class="ic">🎵</span>
+        <span><b>Lo que más le ha gustado</b>
+        <span>La actividad de memoria del martes 8. Se acordó de una canción entera
+          y estuvo cantándola.</span></span>
+      </li>
+    </ul>
+
+    <div class="dias">
+      <p class="t">Días que ha conversado con Alma</p>
+      <div class="puntos" role="img" aria-label="Doce de los quince días ha conversado con Alma">
+        <i></i><i></i><i></i><i class="no"></i><i></i><i></i><i></i><i></i>
+        <i class="no"></i><i></i><i></i><i></i><i></i><i class="no"></i><i></i>
+      </div>
+      <p class="pie">Los días en blanco son días normales: nadie tiene ganas de hablar
+        todos los días.</p>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+
+  <div class="pad">
+    <div class="hablar">
+      <p class="et">Para cuando la llames</p>
+      <p>Pregúntale por la canción del martes. Le hizo mucha ilusión acordarse de la
+        letra entera y estuvo un rato contándoselo a Alma.
+        <span class="frase">«Mamá, ¿qué canción era esa que te sabías?»</span></p>
+    </div>
+  </div>
+
+  <div class="pad" style="padding-top:0">
+    <div class="juntos">
+      <span class="num">✳</span>
+      <div>
+        <h3>Una cosa para hacer juntos</h3>
+        <p>Este fin de semana empieza el reto de otoño, que va de equilibrio y son
+          cinco minutos al día. Si lo hacéis juntos el domingo, luego le costará menos
+          seguir sola entre semana.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pad" style="padding-top:0">
+    <div class="promesa">
+      <span class="c">🔒</span>
+      <p><b>Lo que aquí no vas a encontrar.</b> Nada de lo que María habla con Alma.
+        Este resumen cuenta qué ha hecho, nunca qué ha dicho. Ella ve exactamente lo
+        mismo que ves tú y decide qué se comparte.</p>
+    </div>
+  </div>
+
+  <div class="cta">
+    <a class="btn" href="#">Ver el resumen completo</a>
+    <p class="peq"><a href="#">Cambiar cada cuánto te llega</a> · <a href="#">Ajustar qué se comparte</a></p>
+  </div>
+
+  <div class="pie2">
+    Inrobics Social Robotics S.L. · Parque Científico UC3M, Leganés (Madrid)<br>
+    Recibes este resumen porque María te ha añadido como familiar.
+    <a href="#">Privacidad</a> · <a href="#">Dejar de recibirlo</a>
+  </div>
+</div>
+
+</body>
+</html>

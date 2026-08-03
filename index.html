@@ -1,127 +1,228 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Muestras interactivas del TFM sobre Inrobics Care">
-  <title>Mocks del TFM · Inrobics Care</title>
-  <style>
-    :root {
-      color-scheme: light;
-      --ink: #17233b;
-      --muted: #66718a;
-      --line: #dce3ef;
-      --surface: #ffffff;
-      --accent: #2d6cdf;
-      --accent-dark: #1c4fae;
-      --background: #f5f8fc;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockups · Plan de marketing digital de Inrobics Care</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#008CFF;--azul-osc:#0179DB;--celeste:#9AEDFF;--neutro:#EFEFEA;--neutro2:#E9E9E0;--negro:#1F1F1F;--magenta:#E800F0;--link:#0165B8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Bricolage Grotesque",Helvetica,Arial,sans-serif;color:var(--negro);background:#fff;font-size:17px;line-height:1.6}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+p{max-width:70ch}
 
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: var(--background);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.5;
-    }
-    main { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
-    .hero { padding: 72px 0 42px; }
-    .eyebrow {
-      margin: 0 0 12px;
-      color: var(--accent);
-      font-size: .78rem;
-      font-weight: 800;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-    h1 { max-width: 760px; margin: 0; font-size: clamp(2.2rem, 5vw, 4.4rem); line-height: 1.03; letter-spacing: -.045em; }
-    .intro { max-width: 690px; margin: 22px 0 0; color: var(--muted); font-size: 1.1rem; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 16px; padding-bottom: 52px; }
-    .card {
-      display: flex;
-      min-height: 220px;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      background: var(--surface);
-      box-shadow: 0 12px 30px rgba(23, 35, 59, .06);
-    }
-    .number { color: var(--accent); font-size: .82rem; font-weight: 800; letter-spacing: .08em; }
-    h2 { margin: 14px 0 8px; font-size: 1.25rem; line-height: 1.2; }
-    .card p { margin: 0; color: var(--muted); font-size: .95rem; }
-    .link {
-      display: inline-flex;
-      width: fit-content;
-      align-items: center;
-      gap: 8px;
-      margin-top: 24px;
-      color: var(--accent-dark);
-      font-weight: 750;
-      text-decoration: none;
-    }
-    .link:hover, .link:focus-visible { text-decoration: underline; }
-    footer { padding: 0 0 34px; color: var(--muted); font-size: .86rem; }
-  </style>
+.hero{background:var(--azul-osc);color:#fff;padding:58px 0 52px}
+.marca{display:flex;align-items:baseline;gap:10px;margin-bottom:26px}
+.marca b{font-size:26px;font-weight:800;letter-spacing:-.02em}
+.marca .desc{font-size:21px;font-weight:600;position:relative;padding-left:16px}
+.marca .desc::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:8px;height:8px;border-radius:50%;background:var(--magenta)}
+.hero h1{font-size:clamp(32px,4.2vw,46px);line-height:1.12;letter-spacing:-.03em;font-weight:800;max-width:20ch;margin-bottom:16px}
+.hero p{font-size:19px;color:#dbeeff;max-width:62ch}
+.meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.meta span{background:rgba(255,255,255,.14);border-radius:999px;padding:9px 18px;font-size:15px;font-weight:600}
+
+section{padding:56px 0}
+h2{font-size:clamp(26px,3vw,34px);line-height:1.15;letter-spacing:-.025em;font-weight:800;margin-bottom:10px}
+.sub{font-size:18px;color:#3d3d3d;margin-bottom:34px}
+
+.bloque-tit{display:flex;align-items:center;gap:16px;margin:44px 0 22px}
+.bloque-tit span{background:#E7F3FF;color:var(--azul-osc);font-size:14px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:8px 18px;border-radius:8px}
+.bloque-tit hr{flex:1;border:0;border-top:1px solid var(--neutro2)}
+
+.rejilla{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:1000px){.rejilla{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.rejilla{grid-template-columns:1fr}}
+
+.card{border:1px solid var(--neutro2);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;
+      text-decoration:none;color:inherit;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
+.card:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(31,31,31,.12);border-color:var(--azul)}
+.card:focus-visible{outline:3px solid var(--negro);outline-offset:3px}
+.thumb{height:150px;background:var(--neutro);position:relative;display:grid;place-items:center;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:top}
+.thumb .ic{font-size:44px;opacity:.5}
+.thumb .badge{position:absolute;top:12px;left:12px;background:var(--azul);color:#fff;font-size:12px;font-weight:800;
+              letter-spacing:.05em;padding:6px 12px;border-radius:999px}
+.card .cuerpo{padding:22px;flex:1;display:flex;flex-direction:column}
+.card h3{font-size:19px;font-weight:800;letter-spacing:-.015em;margin-bottom:7px}
+.card p{font-size:15px;color:#3d3d3d;line-height:1.5;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.tag{font-size:12.5px;font-weight:700;border-radius:999px;padding:5px 11px;background:var(--neutro);color:#3d3d3d}
+.tag.jm{background:#E7F3FF;color:#0a4d86}
+.tag.ma{background:#FCE7FE;color:#8a0090}
+
+.nota{background:var(--neutro);border-radius:20px;padding:28px 30px;margin-top:44px}
+.nota h3{font-size:19px;font-weight:800;margin-bottom:10px}
+.nota ul{margin:10px 0 0 20px}
+.nota li{font-size:16px;color:#3d3d3d;margin-bottom:7px}
+
+footer{background:var(--negro);color:#c9c9c9;padding:40px 0;font-size:15px;margin-top:20px}
+footer b{color:#fff}
+</style>
 </head>
 <body>
-  <main>
-    <header class="hero">
-      <p class="eyebrow">TFM · Inrobics Care</p>
-      <h1>Mocks interactivos del proyecto</h1>
-      <p class="intro">Accede a las distintas pantallas y flujos diseñados para explorar la experiencia de Inrobics Care.</p>
-    </header>
 
-    <section class="grid" aria-label="Listado de mocks">
-      <article class="card">
-        <div>
-          <span class="number">A1</span>
-          <h2>Landing principal</h2>
-          <p>Presentación del servicio y propuesta de valor.</p>
+<div class="hero">
+  <div class="wrap">
+    <div class="marca"><b>inrobics</b><span class="desc">Care</span></div>
+    <h1>Mockups del plan de marketing digital</h1>
+    <p>Piezas visuales de las acciones del apartado 5.4, construidas sobre el Manual de
+      Identidad Visual de Inrobics (V2, 2026). Trabajo Fin de Máster · Ana Albendea Membrilla.</p>
+    <div class="meta">
+      <span>Azul corporativo #008CFF</span>
+      <span>Acento Care #E800F0</span>
+      <span>Bricolage Grotesque</span>
+      <span>WCAG 2.1 AA</span>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>Cómo leer estas piezas</h2>
+    <p class="sub">Diez piezas. Cada mockup corresponde a una acción concreta del plan
+      estratégico y está diseñado para una de las dos personas del ciclo de decisión: el
+      decisor que paga y la usuaria que utiliza el producto. El guion de la acción 9
+      aparece dos veces, dentro del correo y como hoja imprimible, porque el plan lo
+      entrega por ambas vías.</p>
+
+    <div class="bloque-tit"><span>Bloque A · Imprescindibles</span><hr></div>
+    <div class="rejilla">
+
+      <a class="card" href="A1_Landing_Inrobics_Care.html">
+        <div class="thumb"><span class="badge">Acción 4</span><span class="ic">🖥️</span></div>
+        <div class="cuerpo">
+          <h3>Landing principal</h3>
+          <p>Página de destino de todo el embudo. El visitante entiende la propuesta en
+            diez segundos y puede hablar con Alma sin registrarse.</p>
+          <div class="tags"><span class="tag jm">José Manuel</span><span class="tag">2.500 demos</span><span class="tag">HTML</span></div>
         </div>
-        <a class="link" href="A1_Landing_Inrobics_Care.html">Abrir mock <span aria-hidden="true">→</span></a>
+      </a>
+
+      <a class="card" href="A2_Demo_voz_Alma.html">
+        <div class="thumb"><span class="badge">Acción 4</span><span class="ic">🎙️</span></div>
+        <div class="cuerpo">
+          <h3>La demo por voz con Alma</h3>
+          <p>Los tres momentos de la demo: rutina, recordatorio y ejemplo de reporte.
+            El correo se pide solo al final. Navegable.</p>
+          <div class="tags"><span class="tag jm">José Manuel</span><span class="tag">2.500 demos</span><span class="tag">Interactivo</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="A3_Calculadora_ahorro.html">
+        <div class="thumb"><span class="badge">Acción 6</span><span class="ic">🧮</span></div>
+        <div class="cuerpo">
+          <h3>Calculadora de ahorro</h3>
+          <p>Compara residencia, cuidador y suscripción con datos verificables, e incluye
+            un bloque sobre dónde el producto no llega. Funcional.</p>
+          <div class="tags"><span class="tag jm">José Manuel</span><span class="tag">2.500 demos</span><span class="tag">Interactivo</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="A4_Alta_prueba_30_dias.html">
+        <div class="thumb"><span class="badge">Acción 11</span><span class="ic">✍️</span></div>
+        <div class="cuerpo">
+          <h3>Alta de la prueba de 30 días</h3>
+          <p>Un solo paso, con medio de pago. La garantía de cancelación pesa más que el
+            botón de contratar, con la fecha exacta del primer cobro.</p>
+          <div class="tags"><span class="tag jm">José Manuel</span><span class="tag">1.200 pruebas</span><span class="tag">HTML</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="A5_Onboarding_app_Maria.html">
+        <div class="thumb"><span class="badge">Acción 10</span><span class="ic">📱</span></div>
+        <div class="cuerpo">
+          <h3>Onboarding en la aplicación</h3>
+          <p>Cuatro pantallas para la usuaria: calibración de voz, primera rutina fácil,
+            estado del micrófono y familia conectada.</p>
+          <div class="tags"><span class="tag ma">María</span><span class="tag">1.200 pruebas</span><span class="tag">HTML</span></div>
+        </div>
+      </a>
+
+      <article class="card">
+        <div class="thumb"><span class="badge">Acción 3</span><span class="ic">▶</span></div>
+        <div class="cuerpo">
+          <h3>Miniatura del vídeo · vertical</h3>
+          <p>Formato 9:16 para Reels y Shorts, con subtítulo incrustado para la
+            reproducción sin sonido y llamada a la demo.</p>
+          <div class="tags"><span class="tag jm">José Manuel</span><span class="tag">5.000 visitas</span><span class="tag">Recurso pendiente</span></div>
+        </div>
       </article>
 
       <article class="card">
-        <div>
-          <span class="number">A2</span>
-          <h2>Demo por voz con Alma</h2>
-          <p>Exploración de la interacción conversacional.</p>
+        <div class="thumb"><span class="badge">Acción 3</span><span class="ic">▶</span></div>
+        <div class="cuerpo">
+          <h3>Miniatura del vídeo · YouTube</h3>
+          <p>Misma pieza en 16:9, con la cita desplazada a la izquierda para dejar
+            respirar el indicador de reproducción.</p>
+          <div class="tags"><span class="tag jm">José Manuel</span><span class="tag">5.000 visitas</span><span class="tag">Recurso pendiente</span></div>
         </div>
-        <a class="link" href="A2_Demo_voz_Alma.html">Abrir mock <span aria-hidden="true">→</span></a>
       </article>
 
-      <article class="card">
-        <div>
-          <span class="number">A3</span>
-          <h2>Calculadora de ahorro</h2>
-          <p>Estimación comparativa del ahorro potencial.</p>
-        </div>
-        <a class="link" href="A3_Calculadora_ahorro.html">Abrir mock <span aria-hidden="true">→</span></a>
-      </article>
+    </div>
 
-      <article class="card">
-        <div>
-          <span class="number">A4</span>
-          <h2>Prueba de 30 días</h2>
-          <p>Flujo de alta para iniciar la prueba del servicio.</p>
-        </div>
-        <a class="link" href="A4_Alta_prueba_30_dias.html">Abrir mock <span aria-hidden="true">→</span></a>
-      </article>
+    <div class="bloque-tit"><span>Bloque B · Activación y fidelización</span><hr></div>
+    <div class="rejilla">
 
-      <article class="card">
-        <div>
-          <span class="number">A5</span>
-          <h2>Onboarding de María</h2>
-          <p>Primeros pasos de la usuaria dentro de la aplicación.</p>
+      <a class="card" href="B3_Email_Dia0_Checklist_y_guion.html">
+        <div class="thumb"><span class="badge">Acción 9</span><span class="ic">✉️</span></div>
+        <div class="cuerpo">
+          <h3>Correo del Día 0</h3>
+          <p>Checklist de instalación de diez minutos y el guion en formato de
+            instrucciones: qué decir y qué evitar. Incluye la versión para mensajería.</p>
+          <div class="tags"><span class="tag jm">José Manuel</span><span class="tag">1.200 pruebas</span><span class="tag">Email</span></div>
         </div>
-        <a class="link" href="A5_Onboarding_app_Maria.html">Abrir mock <span aria-hidden="true">→</span></a>
-      </article>
-    </section>
+      </a>
 
-    <footer>Prototipos navegables · Trabajo Fin de Máster</footer>
-  </main>
+      <a class="card" href="B3b_Instrucciones_como_ensenarselo.html">
+        <div class="thumb"><span class="badge">Acción 9</span><span class="ic">📄</span></div>
+        <div class="cuerpo">
+          <h3>Hoja de instrucciones imprimible</h3>
+          <p>El mismo guion en el formato de las instrucciones de uso de Inrobics: dos
+            hojas apaisadas con ilustración monolínea, columnas numeradas y barra lateral.</p>
+          <div class="tags"><span class="tag jm">José Manuel</span><span class="tag">1.200 pruebas</span><span class="tag">Imprimible</span></div>
+        </div>
+      </a>
+
+      <a class="card" href="B4_Reporte_quincenal_familia.html">
+        <div class="thumb"><span class="badge">Acción 12</span><span class="ic">📮</span></div>
+        <div class="cuerpo">
+          <h3>Reporte quincenal a la familia</h3>
+          <p>Actividad contada en frases, no en métricas. Sin puntuaciones ni
+            comparaciones, y con una propuesta para hacer juntos.</p>
+          <div class="tags"><span class="tag jm">José Manuel</span><span class="tag">Fidelización</span><span class="tag">Email</span></div>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="nota">
+      <h3>Criterios aplicados en todas las piezas</h3>
+      <ul>
+        <li><b>Color con disciplina.</b> Azul <code>#008CFF</code> dominante; el magenta
+          <code>#E800F0</code> solo como punto identificativo de Care, nunca en texto por
+          contraste insuficiente.</li>
+        <li><b>Gradientes autorizados.</b> Únicamente <code>#84E6FF → #008CFF</code>, y no
+          en las piezas de carácter legal, como prohíbe el manual.</li>
+        <li><b>Accesibilidad.</b> Cuerpo de 18 px para el decisor y 22-30 px para la
+          usuaria; áreas táctiles de 48 y 64 px; información nunca transmitida solo por color.</li>
+        <li><b>Lenguaje.</b> Ni "monitorización", ni "vigilancia", ni "paciente", ni
+          "dispositivo": todas activan rechazo en la usuaria según el análisis del target.</li>
+        <li><b>Tono.</b> Desde la confianza y no desde la promesa exagerada; desde la
+          empatía y no desde la lástima.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <b>Trabajo Fin de Máster · Plan de marketing digital de Inrobics Care</b><br>
+    Ana Albendea Membrilla · Máster en Marketing Digital<br><br>
+    Mockups de trabajo académico. Las fotografías son marcadores de posición y los
+    códigos QR son decorativos. Identidad visual: Manual de Identidad Visual de Inrobics, V2 2026.
+  </div>
+</footer>
+
 </body>
 </html>
