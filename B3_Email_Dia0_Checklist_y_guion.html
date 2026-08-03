@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inrobics Care — Día 0: checklist de instalación y guion (acción 9)</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#008CFF;--azul-osc:#0179DB;--celeste:#9AEDFF;--neutro:#EFEFEA;--neutro2:#E9E9E0;--negro:#1F1F1F;--magenta:#E800F0;--verde:#02AF08;--link:#0165B8}
+body{margin:0;padding:40px 16px 70px;background:#DDD8CF;
+     font-family:"Bricolage Grotesque",Helvetica,Arial,sans-serif;color:var(--negro)}
+.rot{max-width:640px;margin:0 auto 14px;font-size:14px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#5c5c5c}
+.mail{max-width:640px;margin:0 auto 46px;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 22px 55px rgba(31,31,31,.16)}
+.pad{padding:34px 40px}
+@media(max-width:560px){.pad{padding:26px 22px}}
+
+/* cabecera */
+.cab{padding:26px 40px;border-bottom:1px solid var(--neutro2);display:flex;align-items:center;gap:10px}
+.cab b{font-size:23px;font-weight:800;color:var(--azul-osc);letter-spacing:-.02em}
+.cab .desc{font-size:19px;font-weight:600;position:relative;padding-left:15px}
+.cab .desc::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:7px;height:7px;border-radius:50%;background:var(--magenta)}
+.cab .dia{margin-left:auto;font-size:14px;font-weight:700;background:var(--neutro);border-radius:999px;padding:7px 15px}
+
+h1{font-size:30px;line-height:1.2;letter-spacing:-.025em;font-weight:800;margin:0 0 12px}
+.intro{font-size:17px;line-height:1.6;color:#3d3d3d;margin:0 0 8px;max-width:56ch}
+
+h2{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#5c5c5c;margin:0 0 6px}
+.h2sub{font-size:24px;font-weight:800;letter-spacing:-.02em;margin:0 0 6px}
+.h2nota{font-size:15px;color:#5c5c5c;margin:0 0 22px}
+
+/* checklist */
+.sep{height:1px;background:var(--neutro2);margin:0 40px}
+@media(max-width:560px){.sep{margin:0 22px}}
+.check{list-style:none;margin:0;padding:0}
+.check li{display:flex;gap:16px;padding:16px 0;border-bottom:1px dashed var(--neutro2)}
+.check li:last-child{border:0}
+.box{width:30px;height:30px;flex:none;border:2.5px solid var(--azul);border-radius:9px;margin-top:2px}
+.check b{display:block;font-size:18px;font-weight:700;margin-bottom:3px}
+.check span{font-size:16px;color:#3d3d3d;line-height:1.55}
+.tiempo{display:inline-flex;align-items:center;gap:8px;background:#E7F3FF;color:#0a4d86;font-size:14px;font-weight:700;border-radius:999px;padding:7px 15px;margin-bottom:18px}
+
+.tip{background:var(--neutro);border-radius:16px;padding:20px 22px;margin-top:22px;display:flex;gap:14px}
+.tip .ic{font-size:22px;line-height:1}
+.tip p{margin:0;font-size:16px;line-height:1.55;color:#2b2b2b}
+.tip b{font-weight:700}
+
+/* guion */
+.guion{background:var(--negro);color:#fff}
+.guion .h2sub{color:#fff}
+.guion h2{color:#9aa3ad}
+.guion .h2nota{color:#b9c0c8}
+.mom{border-top:1px solid rgba(255,255,255,.16);padding:24px 0}
+.mom:first-of-type{border-top:0;padding-top:6px}
+.mom .cuando{font-size:14px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--celeste);margin-bottom:14px}
+.par{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.par{grid-template-columns:1fr}}
+.op{border-radius:14px;padding:16px 18px}
+.si{background:rgba(2,175,8,.16);border-left:4px solid var(--verde)}
+.no{background:rgba(255,255,255,.07);border-left:4px solid #7a828b}
+.op .et{font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-bottom:7px}
+.si .et{color:#7ee085}.no .et{color:#aeb5bd}
+.op p{margin:0;font-size:17px;line-height:1.5}
+.porque{font-size:15px;color:#b9c0c8;margin:12px 0 0;line-height:1.55}
+.porque b{color:#fff}
+
+/* siguiente */
+.next{list-style:none;margin:0;padding:0}
+.next li{display:grid;grid-template-columns:86px 1fr;gap:14px;padding:12px 0;font-size:16px;color:#3d3d3d;line-height:1.5}
+.next b{font-size:14px;font-weight:800;background:var(--neutro);border-radius:999px;padding:5px 0;text-align:center;color:var(--negro);height:fit-content}
+
+.cta{text-align:center;padding:8px 40px 38px}
+.btn{display:inline-block;background:var(--azul);color:#fff;text-decoration:none;font-size:19px;font-weight:700;padding:20px 38px;border-radius:999px}
+.cta .peq{font-size:15px;color:#5c5c5c;margin-top:16px}
+.cta .peq a{color:var(--link)}
+
+.pie{background:var(--neutro);padding:26px 40px;font-size:13px;color:#5c5c5c;line-height:1.6}
+.pie a{color:var(--link)}
+
+/* whatsapp */
+.wa{max-width:420px;margin:0 auto;background:#ECE5DD;border-radius:22px;padding:20px;box-shadow:0 22px 55px rgba(31,31,31,.16)}
+.wa .b{background:#fff;border-radius:14px 14px 14px 4px;padding:14px 16px;margin-bottom:10px;font-size:16px;line-height:1.5;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+.wa .b.mio{background:#DCF8C6;border-radius:14px 14px 4px 14px;margin-left:auto}
+.wa .b small{display:block;text-align:right;font-size:11px;color:#7d8a95;margin-top:5px}
+.wa .b .tit{font-weight:700;margin-bottom:4px}
+.wa .enlace{color:var(--link);word-break:break-all}
+</style>
+</head>
+<body>
+
+<p class="rot">Acción 9 · Flujo de activación — Día 0 · Correo al decisor</p>
+
+<div class="mail">
+  <div class="cab">
+    <b>inrobics</b><span class="desc">Care</span>
+    <span class="dia">Día 0 de 30</span>
+  </div>
+
+  <div class="pad">
+    <h1>Ya está todo listo, José Manuel</h1>
+    <p class="intro">Diez minutos para dejarlo instalado y un guion corto para el
+      momento de enseñárselo, que suele ser la parte delicada. Si algo se tuerce,
+      respóndeme a este correo: lo lee una persona.</p>
+  </div>
+
+  <div class="sep"></div>
+
+  <div class="pad">
+    <h2>Primero</h2>
+    <p class="h2sub">Checklist de instalación</p>
+    <p class="h2nota">Hazlo tú antes, para que ella se encuentre con todo funcionando.</p>
+    <span class="tiempo">⏱ Unos 10 minutos</span>
+
+    <ul class="check">
+      <li>
+        <span class="box"></span>
+        <span><b>Descarga Inrobics Care en su tablet o su televisor</b>
+        <span>Sirve el que ya tenga en casa. No hay que comprar ningún aparato.</span></span>
+      </li>
+      <li>
+        <span class="box"></span>
+        <span><b>Conéctala al wifi y déjala enchufada</b>
+        <span>Alma necesita conexión para conversar. Un enchufe cerca evita que se
+          quede sin batería justo el día que más le apetece hablar.</span></span>
+      </li>
+      <li>
+        <span class="box"></span>
+        <span><b>Entra con tu correo y escribe su nombre</b>
+        <span>Alma la llamará así desde el primer momento. Pon el nombre con el que
+          la llama la gente, no el del DNI.</span></span>
+      </li>
+      <li>
+        <span class="box"></span>
+        <span><b>Añádete como familiar</b>
+        <span>Y a quien ella quiera. Podéis cambiarlo cuando queráis, y ella decide
+          qué se comparte.</span></span>
+      </li>
+    </ul>
+
+    <div class="tip">
+      <span class="ic">📍</span>
+      <p><b>Dónde colocarla.</b> Donde se siente a diario y a la altura de los ojos:
+        el salón, la mesa de la cocina. Si acaba en un rincón o en una habitación
+        que no usa, no la usará. Esto importa más de lo que parece.</p>
+    </div>
+  </div>
+
+  <div class="pad guion">
+    <h2>Después</h2>
+    <p class="h2sub">Cómo enseñárselo sin agobiarla</p>
+    <p class="h2nota">Cuatro momentos y qué decir en cada uno. Lo hemos aprendido
+      de las familias que ya han pasado por aquí.</p>
+
+    <div class="mom">
+      <div class="cuando">1 · Cuando se lo propones</div>
+      <div class="par">
+        <div class="op si"><div class="et">Mejor así</div>
+          <p>“He visto una cosa que me ha gustado. ¿La probamos juntos un rato?”</p></div>
+        <div class="op no"><div class="et">Mejor no</div>
+          <p>“Te he traído algo para que no estés tan sola.”</p></div>
+      </div>
+      <p class="porque"><b>Por qué.</b> La segunda frase la coloca como un problema
+        que hay que resolver. La primera la invita a acompañarte a ti.</p>
+    </div>
+
+    <div class="mom">
+      <div class="cuando">2 · La primera vez que le habla</div>
+      <div class="par">
+        <div class="op si"><div class="et">Mejor así</div>
+          <p>Callarte y dejar que hable ella. Aunque tarde. Aunque se ría.</p></div>
+        <div class="op no"><div class="et">Mejor no</div>
+          <p>Contestar tú por ella o repetirle lo que tiene que decir.</p></div>
+      </div>
+      <p class="porque"><b>Por qué.</b> Si contestas tú, Alma aprende tu voz y no la
+        suya, y ella entiende que necesita intermediario. Tiene que ser suyo desde
+        el primer minuto.</p>
+    </div>
+
+    <div class="mom">
+      <div class="cuando">3 · Si Alma no la entiende</div>
+      <div class="par">
+        <div class="op si"><div class="et">Mejor así</div>
+          <p>“Es normal, todavía está aprendiendo cómo hablas tú.”</p></div>
+        <div class="op no"><div class="et">Mejor no</div>
+          <p>“Tienes que hablar más claro” o “más alto”.</p></div>
+      </div>
+      <p class="porque"><b>Por qué.</b> El fallo es de la máquina, no de ella. En
+        cuanto siente que el problema es suyo, lo apaga y no vuelve. La primera
+        semana Alma ajusta el reconocimiento a su forma de hablar.</p>
+    </div>
+
+    <div class="mom">
+      <div class="cuando">4 · Cuando te vas de su casa</div>
+      <div class="par">
+        <div class="op si"><div class="et">Mejor así</div>
+          <p>“Te la dejo por si te apetece. Mañana me cuentas.”</p></div>
+        <div class="op no"><div class="et">Mejor no</div>
+          <p>“Acuérdate de usarla todos los días, ¿eh?”</p></div>
+      </div>
+      <p class="porque"><b>Por qué.</b> En cuanto se convierte en un deber, deja de
+        ser compañía y pasa a ser una tarea más. Y las tareas se abandonan.</p>
+    </div>
+  </div>
+
+  <div class="pad">
+    <h2>A partir de ahora</h2>
+    <p class="h2sub">Qué vas a recibir</p>
+    <ul class="next">
+      <li><b>Mañana</b><span>Te confirmo si ha habido una primera conversación.</span></li>
+      <li><b>Día 3</b><span>Si no la ha usado, te escribo con tres cosas concretas que
+        suelen funcionar. Y si quieres, te llamamos.</span></li>
+      <li><b>Día 7</b><span>Tu primer resumen de cómo va la semana.</span></li>
+      <li><b>Día 27</b><span>Aviso antes del primer cobro, con el botón de cancelar al lado.</span></li>
+    </ul>
+  </div>
+
+  <div class="cta">
+    <a class="btn" href="#">Ver la guía completa</a>
+    <p class="peq">¿Prefieres que te lo contemos por teléfono?
+      <a href="#">Pide una llamada de bienvenida</a>.</p>
+  </div>
+
+  <div class="pie">
+    Inrobics Social Robotics S.L. · Parque Científico UC3M, Leganés (Madrid)<br>
+    Estás en la prueba de 30 días. No se ha cobrado nada y puedes
+    <a href="#">cancelar en un clic</a> cuando quieras.
+    <a href="#">Privacidad</a> · <a href="#">Dejar de recibir estos correos</a>
+  </div>
+</div>
+
+<p class="rot">Misma pieza · versión para mensajería directa</p>
+
+<div class="wa">
+  <div class="b">
+    <div class="tit">Inrobics Care</div>
+    Hola José Manuel 👋 Ya tienes activada la prueba de 30 días.
+    Te he mandado por correo el checklist de instalación (10 min) y el guion
+    para enseñárselo sin agobiarla.<small>10:04</small>
+  </div>
+  <div class="b">
+    <b>Lo más importante del guion:</b><br>
+    · Proponlo como algo que probáis juntos, no como algo que le hace falta.<br>
+    · Deja que hable ella, aunque tarde.<br>
+    · Si Alma no la entiende, el fallo es de Alma.<small>10:04</small>
+  </div>
+  <div class="b">
+    ¿Vas a estar con ella cuando la enciendas por primera vez?<small>10:05</small>
+  </div>
+  <div class="b mio">Sí, el sábado voy a comer a su casa<small>13:22 ✓✓</small></div>
+  <div class="b">
+    Perfecto, es el mejor momento 🙂 El sábado por la mañana te reenvío el guion
+    para que lo tengas a mano.<small>13:23</small>
+  </div>
+</div>
+
+</body>
+</html>
