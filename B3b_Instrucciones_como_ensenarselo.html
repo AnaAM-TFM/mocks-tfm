@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inrobics Care — Instrucciones: cómo enseñárselo sin agobiarla</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --azul:#008CFF; --azul-osc:#0179DB; --azul-cla:#3EA8FF; --celeste:#9AEDFF;
+  --neutro:#EFEFEA; --neutro2:#E9E9E0; --negro:#1F1F1F; --magenta:#E800F0;
+  --pill:#E7F3FF; --linea:#B9DCFF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#CFCAC2;font-family:"Bricolage Grotesque",Helvetica,Arial,sans-serif;color:var(--negro);padding:34px 16px 60px}
+
+.hoja{width:1280px;height:905px;margin:0 auto 34px;background:#fff;position:relative;overflow:hidden;
+      box-shadow:0 20px 50px rgba(31,31,31,.22)}
+@media(max-width:1340px){.hoja{transform-origin:top center}}
+
+/* ---------- banda superior ---------- */
+.banda{height:98px;background:var(--azul-osc);display:flex;align-items:center;padding:0 44px;position:relative}
+.banda h1{color:#fff;font-size:38px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.banda .marca{margin-left:auto;text-align:right;color:#fff}
+.banda .marca b{display:block;font-size:31px;font-weight:800;letter-spacing:-.02em;line-height:1}
+.banda .marca span{font-size:11px;letter-spacing:.02em;opacity:.9}
+.banda .marca i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--magenta);margin:0 5px 0 2px;vertical-align:middle}
+.subbanda{padding:14px 44px 0;font-size:15px;color:#4a4a4a}
+
+/* ---------- píldoras de sección ---------- */
+.pill{display:inline-block;background:var(--pill);color:var(--azul-osc);font-size:19px;font-weight:800;
+      letter-spacing:-.01em;padding:9px 26px;border-radius:8px;margin:22px 0 14px}
+.centro{text-align:center}
+
+/* ---------- ilustración ---------- */
+.escena{display:flex;justify-content:center;align-items:flex-start;gap:0;padding:0 44px}
+.nota-svg{fill:#fff;stroke:var(--azul-osc);stroke-width:1.6}
+.txt-svg{font-family:"Bricolage Grotesque",Helvetica,Arial,sans-serif;font-size:13px;fill:var(--negro)}
+.txt-svg.b{font-weight:700}
+
+/* ---------- tarjetas de requisitos ---------- */
+.req{display:flex;gap:26px;padding:0 44px;align-items:flex-start;justify-content:center}
+.req .item{width:200px;text-align:center}
+.req .cir{width:36px;height:36px;border-radius:50%;background:var(--azul);color:#fff;font-weight:800;font-size:19px;
+          display:grid;place-items:center;margin:0 auto 10px}
+.req .marco{border:1.6px solid var(--linea);border-radius:14px;height:112px;display:grid;place-items:center;margin-bottom:10px}
+.req p{font-size:14px;line-height:1.4;color:#3d3d3d}
+.req b{display:block;font-size:15px;color:var(--negro)}
+
+/* ---------- página 2: columnas ---------- */
+.cols{display:flex;gap:26px;padding:0 44px}
+.col{flex:1;border:1.6px solid var(--linea);border-radius:18px;padding:56px 26px 26px;position:relative}
+.col .icono{position:absolute;top:-30px;left:22px;width:64px;height:64px;border-radius:50%;background:var(--azul-osc);
+            display:grid;place-items:center}
+.col .titulo{position:absolute;top:-14px;left:100px;background:var(--pill);color:var(--azul-osc);
+             font-size:14px;font-weight:800;letter-spacing:.06em;padding:7px 16px;border-radius:6px;text-transform:uppercase}
+.paso{display:grid;grid-template-columns:44px 1fr;gap:14px;margin-bottom:20px}
+.paso .n{width:36px;height:36px;border-radius:50%;background:var(--azul);color:#fff;font-weight:800;font-size:18px;
+         display:grid;place-items:center}
+.paso .n.x{background:#fff;border:2.4px solid #8a94a0;color:#5c6672;font-size:20px}
+.paso h3{font-size:15px;font-weight:800;margin-bottom:3px;letter-spacing:-.01em}
+.paso p{font-size:14.5px;line-height:1.5;color:#2b2b2b;text-align:justify}
+.paso em{font-style:normal;font-weight:700}
+.paso .frase{display:block;margin-top:5px;font-size:14.5px;color:var(--azul-osc);font-weight:700}
+.paso .frase.no{color:#5c6672;text-decoration:line-through;text-decoration-thickness:1px}
+
+/* barra lateral */
+.lateral{width:250px;flex:none;display:flex;flex-direction:column;gap:18px}
+.lat-tit{background:var(--pill);color:var(--azul-osc);font-size:13px;font-weight:800;letter-spacing:.06em;
+         padding:7px 14px;border-radius:6px;text-align:center;text-transform:uppercase}
+.lat-caja{border:1.6px solid var(--linea);border-radius:14px;padding:18px}
+.lat-caja p{font-size:13.5px;line-height:1.5;color:#2b2b2b;margin-bottom:12px}
+.lat-caja p:last-child{margin:0}
+.lat-caja b{font-weight:800}
+.qr{width:120px;height:120px;margin:0 auto;display:block}
+.pie{position:absolute;bottom:22px;left:44px;right:44px;display:flex;justify-content:space-between;
+     font-size:11.5px;color:#7a7a7a;border-top:1px solid var(--neutro2);padding-top:10px}
+</style>
+</head>
+<body>
+
+<!-- ===================== HOJA 1 ===================== -->
+<div class="hoja">
+  <div class="banda">
+    <h1>Cómo enseñárselo sin agobiarla</h1>
+    <div class="marca"><b>inrobics<i></i>Care</b><span>robots for a better quality of life</span></div>
+  </div>
+  <p class="subbanda">Guía para el familiar · Primer día con Alma · Prueba de 30 días</p>
+
+  <div class="centro"><span class="pill">Dónde colocaros</span></div>
+
+  <div class="escena">
+    <svg width="1080" height="330" viewBox="0 0 1080 330" role="img"
+         aria-label="Familiar sentado al lado de la usuaria con la tablet a la altura de los ojos">
+      <g fill="none" stroke="#0179DB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <!-- sofá -->
+        <path d="M250 250 h330 v52 h-330 z"/>
+        <path d="M250 250 v-58 a14 14 0 0 1 14-14 h302 a14 14 0 0 1 14 14 v58"/>
+        <path d="M262 302 v18 M568 302 v18"/>
+        <path d="M415 178 v72"/>
+        <!-- usuaria sentada (izq) -->
+        <circle cx="330" cy="150" r="26"/>
+        <path d="M330 176 v46 M300 200 h60"/>
+        <path d="M330 222 q-26 4 -30 28 M330 222 q26 4 30 28"/>
+        <path d="M360 200 q34 6 44 30"/>
+        <!-- familiar sentado (der) -->
+        <circle cx="500" cy="146" r="26"/>
+        <path d="M500 172 v50 M470 196 h60"/>
+        <path d="M500 222 q-26 4 -30 28 M500 222 q26 4 30 28"/>
+        <path d="M470 196 q-34 8 -42 32"/>
+        <!-- mesita y tablet -->
+        <path d="M400 300 v-6 M436 300 v-6"/>
+        <path d="M392 258 h52 v36 h-52 z"/>
+        <rect x="396" y="188" width="44" height="62" rx="5"/>
+        <path d="M418 250 v8"/>
+        <!-- cono de escucha -->
+        <path d="M418 218 L318 168 M418 218 L318 262" stroke-dasharray="4 6" stroke-width="1.4"/>
+        <!-- cotas -->
+        <path d="M334 300 h58" stroke-dasharray="0"/>
+        <path d="M334 294 v12 M392 294 v12"/>
+      </g>
+
+      <!-- anotaciones -->
+      <g>
+        <rect class="nota-svg" x="590" y="120" width="250" height="66" rx="18"/>
+        <text class="txt-svg b" x="612" y="146">Sentaos al lado, no enfrente.</text>
+        <text class="txt-svg" x="612" y="166">Es una conversación, no un examen.</text>
+        <path d="M590 155 q-40 6 -60 -4" fill="none" stroke="#0179DB" stroke-width="1.6" stroke-dasharray="4 5"/>
+
+        <rect class="nota-svg" x="590" y="210" width="250" height="66" rx="18"/>
+        <text class="txt-svg b" x="612" y="236">A la altura de los ojos.</text>
+        <text class="txt-svg" x="612" y="256">Ni en el regazo ni en un rincón.</text>
+        <path d="M590 244 q-70 4 -128 -20" fill="none" stroke="#0179DB" stroke-width="1.6" stroke-dasharray="4 5"/>
+
+        <circle cx="880" cy="152" r="19" fill="none" stroke="#0179DB" stroke-width="2"/>
+        <text class="txt-svg b" x="875" y="159" font-size="19" fill="#0179DB">!</text>
+        <text class="txt-svg b" x="910" y="148">Donde se siente a diario:</text>
+        <text class="txt-svg" x="910" y="167">salón o mesa de la cocina.</text>
+
+        <text class="txt-svg b" x="348" y="322">60 cm</text>
+        <rect class="nota-svg" x="118" y="196" width="196" height="48" rx="16"/>
+        <text class="txt-svg b" x="138" y="218">Enchufe cerca</text>
+        <text class="txt-svg" x="138" y="236">y wifi de casa.</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="centro"><span class="pill">Antes de encenderla, 10 minutos</span></div>
+
+  <div class="req">
+    <div class="item">
+      <div class="cir">1</div>
+      <div class="marco">
+        <svg width="70" height="86" viewBox="0 0 70 86" fill="none" stroke="#0179DB" stroke-width="2.2">
+          <rect x="10" y="6" width="50" height="74" rx="6"/><circle cx="35" cy="70" r="3.5"/><path d="M18 16h34"/>
+        </svg>
+      </div>
+      <p><b>Su tablet o televisor</b>El que ya tenga en casa. No hay que comprar ningún aparato.</p>
+    </div>
+    <div class="item">
+      <div class="cir">2</div>
+      <div class="marco">
+        <svg width="86" height="70" viewBox="0 0 86 70" fill="none" stroke="#0179DB" stroke-width="2.2" stroke-linecap="round">
+          <path d="M12 30a44 44 0 0 1 62 0"/><path d="M24 42a27 27 0 0 1 38 0"/><path d="M35 53a12 12 0 0 1 16 0"/><circle cx="43" cy="62" r="3.5" fill="#0179DB"/>
+        </svg>
+      </div>
+      <p><b>Wifi y enchufe</b>Conectada a la red de casa y con corriente cerca.</p>
+    </div>
+    <div class="item">
+      <div class="cir">3</div>
+      <div class="marco">
+        <svg width="74" height="70" viewBox="0 0 74 70" fill="none" stroke="#0179DB" stroke-width="2.2" stroke-linecap="round">
+          <circle cx="37" cy="26" r="15"/><path d="M12 62a25 25 0 0 1 50 0"/>
+        </svg>
+      </div>
+      <p><b>Su nombre</b>El que usa la gente para llamarla, no el del DNI.</p>
+    </div>
+    <div class="item">
+      <div class="cir">4</div>
+      <div class="marco">
+        <svg width="92" height="66" viewBox="0 0 92 66" fill="none" stroke="#0179DB" stroke-width="2.2" stroke-linecap="round">
+          <circle cx="30" cy="22" r="13"/><path d="M8 56a22 22 0 0 1 44 0"/>
+          <circle cx="66" cy="26" r="10"/><path d="M50 54a17 17 0 0 1 32 0"/>
+        </svg>
+      </div>
+      <p><b>La familia</b>Añádete a ti y a quien ella quiera. Se cambia cuando queráis.</p>
+    </div>
+  </div>
+
+  <div class="pie"><span>Inrobics Social Robotics S.L. · Parque Científico UC3M, Leganés (Madrid)</span><span>Hoja 1 de 2</span></div>
+</div>
+
+<!-- ===================== HOJA 2 ===================== -->
+<div class="hoja">
+  <div class="banda">
+    <h1>Los cuatro momentos</h1>
+    <div class="marca"><b>inrobics<i></i>Care</b><span>robots for a better quality of life</span></div>
+  </div>
+  <p class="subbanda">Qué decir, qué no decir y por qué. Lo hemos aprendido de familias que ya han pasado por aquí.</p>
+
+  <div class="cols" style="margin-top:44px">
+
+    <!-- columna: qué hacer -->
+    <div class="col">
+      <div class="icono">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round">
+          <path d="M5 18l8 8L29 8"/>
+        </svg>
+      </div>
+      <div class="titulo">Qué decir</div>
+
+      <div class="paso">
+        <span class="n">1</span>
+        <div>
+          <h3>Cuando se lo propone</h3>
+          <p>Preséntelo como un plan compartido y no como una solución a un problema suyo.</p>
+          <span class="frase">«He visto una cosa que me ha gustado. ¿La probamos juntos un rato?»</span>
+        </div>
+      </div>
+
+      <div class="paso">
+        <span class="n">2</span>
+        <div>
+          <h3>La primera vez que le habla</h3>
+          <p>Guarde silencio y deje que hable ella, aunque tarde en arrancar o se ría.</p>
+          <span class="frase">«Háblale tú, que a mí no me hace caso.»</span>
+        </div>
+      </div>
+
+      <div class="paso">
+        <span class="n">3</span>
+        <div>
+          <h3>Si Alma no la entiende</h3>
+          <p>Coloque el fallo en la máquina. Durante la primera semana Alma ajusta el
+             reconocimiento a su forma de hablar.</p>
+          <span class="frase">«Es normal, todavía está aprendiendo cómo hablas tú.»</span>
+        </div>
+      </div>
+
+      <div class="paso" style="margin:0">
+        <span class="n">4</span>
+        <div>
+          <h3>Al despedirse</h3>
+          <p>Déjelo como una posibilidad abierta, nunca como una tarea pendiente.</p>
+          <span class="frase">«Te la dejo por si te apetece. Mañana me cuentas.»</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- columna: qué evitar -->
+    <div class="col">
+      <div class="icono" style="background:#5c6672">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round">
+          <path d="M6 6l18 18M24 6L6 24"/>
+        </svg>
+      </div>
+      <div class="titulo" style="background:#EFEFEA;color:#5c6672">Qué es mejor evitar</div>
+
+      <div class="paso">
+        <span class="n x">✕</span>
+        <div>
+          <h3>Nombrar la soledad</h3>
+          <p>La sitúa como alguien a quien hay que resolver, y activa el rechazo que
+             describe su propio recorrido.</p>
+          <span class="frase no">«Te he traído algo para que no estés tan sola.»</span>
+        </div>
+      </div>
+
+      <div class="paso">
+        <span class="n x">✕</span>
+        <div>
+          <h3>Contestar usted por ella</h3>
+          <p>Alma aprendería su voz y no la de ella, y ella entendería que necesita
+             intermediario para usarlo.</p>
+          <span class="frase no">«Dile que quieres hacer ejercicio.»</span>
+        </div>
+      </div>
+
+      <div class="paso">
+        <span class="n x">✕</span>
+        <div>
+          <h3>Corregir cómo habla</h3>
+          <p>Convierte un fallo técnico en una culpa suya. Es la causa más frecuente de
+             abandono en los primeros días.</p>
+          <span class="frase no">«Tienes que hablar más claro» · «más alto».</span>
+        </div>
+      </div>
+
+      <div class="paso" style="margin:0">
+        <span class="n x">✕</span>
+        <div>
+          <h3>Convertirlo en una obligación</h3>
+          <p>En cuanto pasa a ser un deber deja de ser compañía, y los deberes se
+             abandonan.</p>
+          <span class="frase no">«Acuérdate de usarla todos los días, ¿eh?»</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- lateral -->
+    <div class="lateral">
+      <div class="lat-tit">*Si algo no sale</div>
+      <div class="lat-caja">
+        <p><b>No la entiende bien.</b> Pídale que repita una frase larga. Alma calibra
+           el reconocimiento con cada intento.</p>
+        <p><b>No le apetece.</b> Déjelo. Alma volverá a saludar mañana por la mañana;
+           insistir el primer día es contraproducente.</p>
+        <p><b>Le preocupa la escucha.</b> Enséñele el aviso de la pantalla: solo escucha
+           cuando se lo piden, y se ve siempre.</p>
+      </div>
+
+      <div class="lat-tit">Qué pasa después</div>
+      <div class="lat-caja">
+        <p><b>Día 1.</b> Le confirmamos si ha habido una primera conversación.</p>
+        <p><b>Día 3.</b> Si no la ha usado, le escribimos con tres cosas que suelen
+           funcionar, y le llamamos si lo prefiere.</p>
+        <p><b>Día 27.</b> Aviso antes del primer cobro, con el botón de cancelar al lado.</p>
+      </div>
+
+      <div class="lat-tit">Más info</div>
+      <svg class="qr" viewBox="0 0 21 21" shape-rendering="crispEdges" aria-label="Código QR de ejemplo">
+        <rect width="21" height="21" fill="#fff"/>
+        <g fill="#1F1F1F">
+          <rect x="0" y="0" width="7" height="1"/><rect x="0" y="6" width="7" height="1"/>
+          <rect x="0" y="0" width="1" height="7"/><rect x="6" y="0" width="1" height="7"/>
+          <rect x="2" y="2" width="3" height="3"/>
+          <rect x="14" y="0" width="7" height="1"/><rect x="14" y="6" width="7" height="1"/>
+          <rect x="14" y="0" width="1" height="7"/><rect x="20" y="0" width="1" height="7"/>
+          <rect x="16" y="2" width="3" height="3"/>
+          <rect x="0" y="14" width="7" height="1"/><rect x="0" y="20" width="7" height="1"/>
+          <rect x="0" y="14" width="1" height="7"/><rect x="6" y="14" width="1" height="7"/>
+          <rect x="2" y="16" width="3" height="3"/>
+          <rect x="8" y="0" width="1" height="1"/><rect x="10" y="1" width="1" height="1"/>
+          <rect x="9" y="3" width="1" height="1"/><rect x="11" y="4" width="1" height="1"/>
+          <rect x="8" y="6" width="1" height="1"/><rect x="12" y="2" width="1" height="1"/>
+          <rect x="0" y="8" width="1" height="1"/><rect x="2" y="9" width="1" height="1"/>
+          <rect x="4" y="8" width="1" height="1"/><rect x="6" y="10" width="1" height="1"/>
+          <rect x="8" y="8" width="1" height="1"/><rect x="10" y="9" width="1" height="1"/>
+          <rect x="12" y="8" width="1" height="1"/><rect x="9" y="11" width="1" height="1"/>
+          <rect x="11" y="12" width="1" height="1"/><rect x="13" y="10" width="1" height="1"/>
+          <rect x="15" y="9" width="1" height="1"/><rect x="17" y="11" width="1" height="1"/>
+          <rect x="19" y="8" width="1" height="1"/><rect x="16" y="13" width="1" height="1"/>
+          <rect x="18" y="14" width="1" height="1"/><rect x="20" y="16" width="1" height="1"/>
+          <rect x="14" y="17" width="1" height="1"/><rect x="16" y="19" width="1" height="1"/>
+          <rect x="18" y="20" width="1" height="1"/><rect x="12" y="15" width="1" height="1"/>
+          <rect x="10" y="17" width="1" height="1"/><rect x="8" y="19" width="1" height="1"/>
+          <rect x="9" y="14" width="1" height="1"/><rect x="11" y="20" width="1" height="1"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="pie"><span>Guion para el familiar · Inrobics Care · Día 0 de la prueba de 30 días</span><span>Hoja 2 de 2</span></div>
+</div>
+
+</body>
+</html>
