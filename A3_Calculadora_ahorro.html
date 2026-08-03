@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inrobics Care — Calculadora de ahorro comparativo (mockup A3)</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+<style>
+:root{--azul:#008CFF;--azul-osc:#0179DB;--celeste:#9AEDFF;--neutro:#EFEFEA;--neutro2:#E9E9E0;--negro:#1F1F1F;--magenta:#E800F0;--link:#0165B8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Bricolage Grotesque",Helvetica,Arial,sans-serif;font-size:18px;line-height:1.65;color:var(--negro);background:#fff}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+p{max-width:68ch}
+header{border-bottom:1px solid var(--neutro2);padding:22px 0}
+.logo{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+.logo b{font-size:24px;font-weight:800;letter-spacing:-.02em;color:var(--azul-osc)}
+.logo .desc{font-size:19px;font-weight:600;color:var(--negro);position:relative;padding-left:14px}
+.logo .desc::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:7px;height:7px;border-radius:50%;background:var(--magenta)}
+
+.intro{padding:56px 0 34px}
+h1{font-size:clamp(32px,4.4vw,48px);line-height:1.12;letter-spacing:-.03em;font-weight:800;margin-bottom:16px;max-width:18ch}
+.lead{font-size:21px;color:#3d3d3d;max-width:58ch}
+
+.grid{display:grid;grid-template-columns:1fr 1.1fr;gap:36px;align-items:start;padding-bottom:70px}
+@media(max-width:940px){.grid{grid-template-columns:1fr}}
+
+.panel{background:var(--neutro);border-radius:26px;padding:32px}
+fieldset{border:0;margin-bottom:30px}
+legend{font-size:20px;font-weight:700;margin-bottom:6px;letter-spacing:-.01em}
+.ayuda{font-size:15px;color:#555;margin-bottom:16px}
+label{display:block;font-weight:600;font-size:17px;margin-bottom:8px}
+input[type=range]{width:100%;height:48px;accent-color:var(--azul)}
+.valor{font-size:30px;font-weight:800;letter-spacing:-.02em;color:var(--azul-osc)}
+.valor small{font-size:16px;font-weight:600;color:#555;letter-spacing:0}
+.opciones{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;width:100%;height:100%;cursor:pointer}
+.opt span{display:block;min-height:52px;display:flex;align-items:center;padding:0 20px;border:2px solid var(--neutro2);background:#fff;border-radius:999px;font-weight:600;font-size:17px}
+.opt input:checked + span{border-color:var(--azul);background:#E7F3FF}
+.opt input:focus-visible + span{outline:3px solid var(--negro);outline-offset:3px}
+
+.res{border:1px solid var(--neutro2);border-radius:26px;padding:34px;box-shadow:0 20px 50px rgba(31,31,31,.07)}
+.res h2{font-size:24px;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
+.res .sub{font-size:16px;color:#555;margin-bottom:26px}
+.barra{margin-bottom:22px}
+.barra .top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:8px}
+.barra .nom{font-weight:700;font-size:18px}
+.barra .cif{font-weight:800;font-size:22px;letter-spacing:-.02em;white-space:nowrap}
+.pista{height:18px;background:var(--neutro);border-radius:999px;overflow:hidden}
+.fill{height:100%;border-radius:999px;transition:width .5s cubic-bezier(.2,.7,.3,1)}
+.f-res{background:var(--negro)}
+.f-cui{background:var(--azul-osc)}
+.f-inr{background:linear-gradient(90deg,#84E6FF,#008CFF)}
+.barra .det{font-size:15px;color:#555;margin-top:7px}
+
+.destacado{margin-top:28px;padding:24px;border-radius:20px;background:#E7F3FF;border-left:6px solid var(--azul)}
+.destacado b{font-size:20px;display:block;margin-bottom:6px}
+.destacado p{font-size:17px;color:#2b2b2b}
+
+.honesto{margin-top:22px;padding:24px;border-radius:20px;background:var(--neutro);border-left:6px solid var(--negro)}
+.honesto b{display:block;font-size:18px;margin-bottom:6px}
+.honesto p{font-size:16px;color:#3d3d3d}
+
+.fuentes{margin-top:26px;font-size:14px;color:#555;line-height:1.6}
+.fuentes a{color:var(--link)}
+.cta{margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:62px;padding:0 32px;border-radius:999px;border:0;cursor:pointer;font-family:inherit;font-size:20px;font-weight:700;text-decoration:none;background:var(--azul);color:#fff;box-shadow:0 6px 20px rgba(0,140,255,.28)}
+.btn:focus-visible{outline:3px solid var(--negro);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<header><div class="wrap"><a class="logo" href="#"><b>inrobics</b><span class="desc">Care</span></a></div></header>
+
+<div class="wrap intro">
+  <h1>La cuenta entera, sin trampas</h1>
+  <p class="lead">Compara lo que costaría cada opción para tu caso. Incluida la
+    parte en la que Inrobics Care no es la respuesta.</p>
+</div>
+
+<div class="wrap grid">
+
+  <form class="panel" id="f">
+    <fieldset>
+      <legend>Horas de cuidado al día</legend>
+      <p class="ayuda">Las que necesita ahora mismo, no las que temes que necesite.</p>
+      <label for="h">Horas diarias de ayuda externa</label>
+      <input type="range" id="h" min="0" max="12" step="1" value="4">
+      <div class="valor"><span id="hv">4</span> <small>horas al día</small></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Precio de la hora en tu zona</legend>
+      <p class="ayuda">La media en España está entre 12 y 16 €/hora.</p>
+      <label for="t">Coste por hora</label>
+      <input type="range" id="t" min="10" max="22" step="1" value="14">
+      <div class="valor"><span id="tv">14</span> <small>€ por hora</small></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Tipo de residencia que estáis mirando</legend>
+      <div class="opciones">
+        <span class="opt"><input type="radio" name="r" value="2040" checked id="r1"><span>Plaza básica · 2.040 €</span></span>
+        <span class="opt"><input type="radio" name="r" value="2118" id="r2"><span>Plaza media · 2.118 €</span></span>
+      </div>
+    </fieldset>
+
+    <fieldset style="margin-bottom:0">
+      <legend>Su pensión</legend>
+      <label for="p">Pensión mensual</label>
+      <input type="range" id="p" min="800" max="2600" step="50" value="1500">
+      <div class="valor"><span id="pv">1.500</span> <small>€ al mes</small></div>
+    </fieldset>
+  </form>
+
+  <div class="res" aria-live="polite">
+    <h2>Tu comparación mensual</h2>
+    <p class="sub">Cifras redondeadas, sobre 30 días.</p>
+
+    <div class="barra">
+      <div class="top"><span class="nom">Residencia privada</span><span class="cif" id="c-res">2.040 €</span></div>
+      <div class="pista"><div class="fill f-res" id="b-res" style="width:100%"></div></div>
+      <div class="det" id="d-res">Deja un hueco de 540 € sobre su pensión.</div>
+    </div>
+
+    <div class="barra">
+      <div class="top"><span class="nom">Cuidador en casa</span><span class="cif" id="c-cui">1.680 €</span></div>
+      <div class="pista"><div class="fill f-cui" id="b-cui" style="width:82%"></div></div>
+      <div class="det" id="d-cui">4 h al día × 14 €/h × 30 días.</div>
+    </div>
+
+    <div class="barra">
+      <div class="top"><span class="nom">Inrobics&nbsp;Care</span><span class="cif">39 €</span></div>
+      <div class="pista"><div class="fill f-inr" id="b-inr" style="width:2%"></div></div>
+      <div class="det">Suscripción mensual. Sin aparatos que comprar ni instalar.</div>
+    </div>
+
+    <div class="destacado">
+      <b id="ahorro">Diferencia frente a la residencia: 2.001 € al mes</b>
+      <p id="ahorro-anual">Son 24.012 € al año que se quedan en casa, y ella también.</p>
+    </div>
+
+    <div class="honesto">
+      <b>Dónde Inrobics Care no llega</b>
+      <p>Si necesita ayuda física para levantarse, asearse o comer, esto no la
+        sustituye. Inrobics Care acompaña, activa y avisa; no hace las tareas de un
+        cuidador ni atiende una emergencia médica. Para eso está la teleasistencia,
+        y en muchos municipios es gratuita.</p>
+    </div>
+
+    <div class="fuentes">
+      Fuentes: coste medio de plaza residencial privada en España, 2.040-2.118 €/mes.
+      Pensión media de jubilación, en torno a 1.500 €/mes.
+      <a href="#">Ver metodología y fuentes completas</a>.
+    </div>
+
+    <div class="cta"><a class="btn" href="#">Probar 30 días gratis</a></div>
+  </div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const eur=n=>n.toLocaleString('es-ES',{maximumFractionDigits:0})+' €';
+const PRECIO=39;
+
+function calc(){
+  const h=+$('h').value, t=+$('t').value, p=+$('p').value;
+  const r=+document.querySelector('input[name=r]:checked').value;
+  $('hv').textContent=h; $('tv').textContent=t;
+  $('pv').textContent=p.toLocaleString('es-ES');
+
+  const cui=h*t*30;
+  const max=Math.max(r,cui,PRECIO);
+
+  $('c-res').textContent=eur(r);
+  $('c-cui').textContent=eur(cui);
+  $('b-res').style.width=(r/max*100)+'%';
+  $('b-cui').style.width=(cui/max*100)+'%';
+  $('b-inr').style.width=Math.max(PRECIO/max*100,1.5)+'%';
+
+  const hueco=r-p;
+  $('d-res').textContent = hueco>0
+    ? 'Deja un hueco de '+eur(hueco)+' sobre su pensión.'
+    : 'Su pensión cubriría la plaza con '+eur(-hueco)+' de margen.';
+  $('d-cui').textContent = h===0
+    ? 'Sin horas de ayuda externa contratadas.'
+    : h+' h al día × '+t+' €/h × 30 días.';
+
+  const dif=r-PRECIO;
+  $('ahorro').textContent='Diferencia frente a la residencia: '+eur(dif)+' al mes';
+  $('ahorro-anual').textContent='Son '+eur(dif*12)+' al año que se quedan en casa, y ella también.';
+}
+['h','t','p'].forEach(id=>$(id).addEventListener('input',calc));
+document.querySelectorAll('input[name=r]').forEach(el=>el.addEventListener('change',calc));
+calc();
+</script>
+</body>
+</html>
